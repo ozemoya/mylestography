@@ -1,103 +1,60 @@
 import Image from "next/image";
-
-export default function Home() {
+import poloroid from "../public/poloroid.png";
+import Navbar from "./components/Navbar";
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * The homepage of the site, containing the main heading and a call to action to book a session.
+ * The images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so.
+ */
+/*******  1feb8d1a-b339-49c2-90fb-f575be0cd126  *******/export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    //The images inside of the poloroid photos hould 'rotate' to new images periodically maybe about a 1 minute or so
+    <div className="bg-[#EFD5AD] grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      <div id ="title" className="w-[635px] y-2 text-center justify-start translate-y-70">
+      {/* #the images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so */}
+      <Image
+      id = "poloroid1"
+        src={poloroid}
+        alt="Poloroid"
+        className="absolute z-0 translate-y-[-100%] rotate-2"
+      />
+      <Image
+        id = "poloroid2"
+        src={poloroid}
+        alt="Poloroid"
+        className="absolute z-0 translate-y-[-120%] translate-x-[-80%] rotate-12 scale-50 " 
+      />
+      <Image
+        id = "poloroid3"
+        src={poloroid}
+        alt="Poloroid"
+        className="absolute z-0 translate-y-[-130%] translate-x-[80%] rotate-350 scale-60"
+      />
+      <Image
+        id = "poloroid4"
+        src={poloroid}
+        alt="Poloroid"
+        className="absolute z-0 translate-y-[-45%] translate-x-[90%] rotate-12 scale-75"
+      />
+      <Image
+        id = "poloroid5"
+        src={poloroid}
+        alt="Poloroid"
+        className="absolute z-0 translate-y-[-50%] translate-x-[-90%] rotate-350 scale-80"
+      />
+      <span className="text-white text-6xl font-normal font-['Iowan_Old_Style']">Bringing </span>
+      <span className="text-orange-500 text-6xl font-bold font-['Iowan_Old_Style'] italic">AESTHETIC </span>
+      <span className="text-white text-6xl font-normal font-['Iowan_Old_Style']">into Photography</span>
+      </div>
+      <button className="w-50 h-14 bg-orange-300 rounded-2xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-black font-['Iowan_Old_Style'] justify-start transform translate-y-70 translate-x-50 text-2xl">
+        book a session
+      </button>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <Navbar />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
