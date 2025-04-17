@@ -29,13 +29,13 @@ import Navbar from "./components/Navbar";
         id = "poloroid3"
         src={poloroid}
         alt="Poloroid"
-        className="absolute z-0 translate-y-[-130%] translate-x-[80%] rotate-350 scale-60"
+        className="absolute z-0 translate-y-[-110%] translate-x-[80%] rotate-350 scale-60"
       />
       <Image
         id = "poloroid4"
         src={poloroid}
         alt="Poloroid"
-        className="absolute z-0 translate-y-[-45%] translate-x-[90%] rotate-12 scale-75"
+        className="absolute z-0 translate-y-[-40%] translate-x-[90%] rotate-12 scale-75"
       />
       <Image
         id = "poloroid5"
