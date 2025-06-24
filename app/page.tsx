@@ -1,12 +1,35 @@
+'use client';
+import { useState, useEffect } from "react";
+import { getImages } from "../lib/getImages"; // Adjust the path as needed
 import Image from "next/image";
-import poloroid from "../public/poloroid.png";
 import Navbar from "./components/Navbar";
+import poloroid from "../public/poloroid.png"; // Adjust the path as needed
+
+;
+
+
+const images = [
+  "/images/IMG_0142.JPG",
+  "/images/IMG_0174.JPG",
+  "/images/IMG_6808.JPG",
+  "/images/IMG_6812.JPG",
+// More images...
+];
+
+export default function Home(){
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((currentImage + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, [currentImage]);
 /*************  ✨ Windsurf Command ⭐  *************/
 /**
  * The homepage of the site, containing the main heading and a call to action to book a session.
  * The images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so.
  */
-/*******  1feb8d1a-b339-49c2-90fb-f575be0cd126  *******/export default function Home() {
   return (
     //The images inside of the poloroid photos hould 'rotate' to new images periodically maybe about a 1 minute or so
     <div className="bg-[#EFD5AD] grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -14,11 +37,21 @@ import Navbar from "./components/Navbar";
       <div id ="title" className="w-[635px] y-2 text-center justify-start translate-y-70">
       {/* #the images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so */}
       <Image
+      src = {images[currentImage]}
+      alt="Rotating Polaroid"
+      className="object-cover z-0 absolute translate-y-[-80%] translate-x-[20%] rotate-2"
+      width={250}
+      height={100}
+      />
+      <Image
       id = "poloroid1"
+      // src="/images/IMG_0142.JPG"
         src={poloroid}
         alt="Poloroid"
         className="absolute z-0 translate-y-[-100%] rotate-2"
-      />
+     
+     />
+
       <Image
         id = "poloroid2"
         src={poloroid}
@@ -52,7 +85,7 @@ import Navbar from "./components/Navbar";
       </button>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-      <Navbar />
+        <Navbar />
         </div>
       </main>
     </div>
