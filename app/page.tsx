@@ -21,7 +21,7 @@ export default function Home(){
  */
   return (
     //The images inside of the poloroid photos hould 'rotate' to new images periodically maybe about a 1 minute or so
-    <div className="bg-[#EFD5AD] grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="bg-[#EFD5AD] min-h-screen w-full flex flex-col items-center justify-center p-0 m-0 font-[family-name:var(--font-geist-sans)] overflow-hidden h-screen">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
       <div id ="title" className="w-[635px] y-2 text-center justify-start translate-y-70">
       {/* #the images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so */}
