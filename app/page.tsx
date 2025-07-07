@@ -106,7 +106,10 @@ export default function Home(){
       <span className="text-orange-500 text-6xl font-bold font-['Iowan_Old_Style'] italic">AESTHETIC </span>
       <span className="text-white text-6xl font-normal font-['Iowan_Old_Style']">into Photography</span>
       </div>
-      <button className="w-50 h-14 bg-orange-300 rounded-2xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-black font-['Iowan_Old_Style'] justify-start transform translate-y-70 translate-x-50 text-2xl">
+      <button
+        className="w-50 h-14 bg-orange-300 rounded-2xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-black font-['Iowan_Old_Style'] justify-start transform translate-y-70 translate-x-50 text-2xl hover:bg-orange-400 transition"
+        onClick={() => window.location.href = '/book'}
+      >
         book a session
       </button>
 
