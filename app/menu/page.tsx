@@ -1,7 +1,6 @@
 'use client';
 import poloroid from "../../public/poloroid.png";
 import Navbar from "../components/Navbar";
-import { getImages } from "../lib/getImages"; // Adjust the path as needed
 import Image from "next/image";
 import images from '../images.js';
 import { useEffect, useState } from "react";
