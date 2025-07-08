@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import images from './images.js';
 import useIsMobile from './components/useIsMobile';
 import ScrapbookImage from './components/ScrapbookImage';
+import Sunflower from './components/Sunflower';
 import type { StaticImageData } from "next/image";
 
 const keyframes = `
@@ -28,19 +29,6 @@ const Section = ({ children, className = '' }: { children: React.ReactNode, clas
   <section className={`w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 ${className}`}>
     <div className="max-w-4xl mx-auto">{children}</div>
   </section>
-);
-
-export const Sunflower = ({ className = '', style }: { className?: string, style?: React.CSSProperties }) => (
-    <div className={`relative w-16 h-16 ${className}`} style={style}>
-        <div className="absolute inset-0 bg-yellow-600 rounded-full transform scale-50"></div>
-        {[...Array(12)].map((_, i) => (
-            <div
-                key={i}
-                className="absolute w-full h-full bg-orange-400 rounded-full"
-                style={{ transform: `rotate(${i * 30}deg) scale(1, 0.3)`, clipPath: 'ellipse(50% 50% at 50% 50%)' }}
-            ></div>
-        ))}
-    </div>
 );
 
 // --- Main Homepage Component ---
