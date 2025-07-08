@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import useIsMobile from "../components/useIsMobile";
-import { Sunflower } from "../page"; // Assuming Sunflower is exported from the homepage
+import Sunflower from '../components/Sunflower';
 
 const keyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');

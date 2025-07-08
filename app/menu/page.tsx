@@ -6,7 +6,7 @@ import images from '../images.js';
 import Navbar from '../components/Navbar';
 import useIsMobile from '../components/useIsMobile';
 import ScrapbookImage from '../components/ScrapbookImage';
-import { Sunflower } from '../page'; // Importing from homepage
+import Sunflower from '../components/Sunflower';
 
 const menuLinks = [
     { href: 'https://ozemoya.github.io/', label: 'Personal Website' },
