@@ -88,14 +88,7 @@ export default function MenuPage() {
                     rotation={-10}
                     className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[60vw] max-w-[250px]"
                 />
-                <ScrapbookImage
-                    src={images[(currentImage + 1) % images.length]}
-                    alt="Another beautiful moment"
-                    width={250}
-                    height={300}
-                    rotation={15}
-                    className="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-1/2 w-[60vw] max-w-[250px] z-10"
-                />
+               
                 <Sunflower className="absolute bottom-0 left-8 w-20 h-20 opacity-70" style={{ transform: 'rotate(-30deg)' }} />
             </div>
           </div>
