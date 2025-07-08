@@ -1,12 +1,12 @@
 'use client'
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({ isMobile }: { isMobile?: boolean }) => {
   return (
     <nav className="w-full p-4 flex items-center justify-between fixed top-0 left-0 z-10">
       <a 
         href="/" 
-        className="text-white text-3xl font-normal font-['Iowan_Old_Style']"
+        className={`text-white ${isMobile ? 'text-2xl' : 'text-3xl'} font-normal font-['Iowan_Old_Style']`}
       >
         mylestography
       </a>

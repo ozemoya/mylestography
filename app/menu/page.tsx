@@ -34,7 +34,6 @@ export default function MenuPage() {
     { href: 'https://ozemoya.github.io/', label: 'Personal Website' },
     { href: 'https://www.instagram.com/mylestography/?next=%2F', label: 'Instagram' },
     { href: '/about', label: 'About' },
-    { href: '/', label: 'Back' },
   ];
 
   return (
@@ -57,13 +56,13 @@ export default function MenuPage() {
               </a>
             ))}
              <div className="mt-6 sm:mt-8">
-                <Navbar />
+                <Navbar isMobile={isMobile} />
              </div>
           </nav>
 
           {/* Right side: Polaroid Stack */}
           { isMobile ? (
-          <div className="relative h-80 sm:h-96 w-full flex items-center justify-center">
+          <div className="relative h-80 sm:h-96 w-full mt-5 ml-6 flex items-center justify-center">
             {/* Background polaroid */}
             <div className="absolute w-36 sm:w-64 h-44 sm:h-80 transform -rotate-6 transition-transform duration-500 hover:rotate-[-8deg] hover:scale-105">
                 <Image
