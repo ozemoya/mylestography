@@ -77,7 +77,7 @@ export default function Home(){
               className="absolute right-0 bottom-0 w-[250px] md:w-[300px]" 
             />
             <Sunflower className="absolute top-12 right-200 z-20 transform scale-110" />
-            <Sunflower className="absolute bottom-16 left-0 z-20" />
+            <Sunflower className="absolute bottom-15 left-0 z-20" />
           </div>
           
           <h1 className="font-['Kalam',_cursive] text-5xl md:text-7xl text-[#D57149] mb-4" style={{ animation: 'popIn 1s ease-out' }}>
