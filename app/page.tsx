@@ -3,169 +3,144 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "./components/Navbar";
-import poloroid from "../public/poloroid.png"; // Adjust the path as needed
 import images from './images.js';
+import useIsMobile from './components/useIsMobile';
+import ScrapbookImage from './components/ScrapbookImage';
+import type { StaticImageData } from "next/image";
 
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 640);
-    }
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  return isMobile;
-}
+const keyframes = `
+  @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Lora:ital,wght@0,400..700&display=swap');
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    80% { opacity: 1; transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+`;
+
+// --- Reusable Components for Scrapbook Theme ---
+
+const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
+  <section className={`w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className="max-w-4xl mx-auto">{children}</div>
+  </section>
+);
+
+export const Sunflower = ({ className = '', style }: { className?: string, style?: React.CSSProperties }) => (
+    <div className={`relative w-16 h-16 ${className}`} style={style}>
+        <div className="absolute inset-0 bg-yellow-600 rounded-full transform scale-50"></div>
+        {[...Array(12)].map((_, i) => (
+            <div
+                key={i}
+                className="absolute w-full h-full bg-orange-400 rounded-full"
+                style={{ transform: `rotate(${i * 30}deg) scale(1, 0.3)`, clipPath: 'ellipse(50% 50% at 50% 50%)' }}
+            ></div>
+        ))}
+    </div>
+);
+
+// --- Main Homepage Component ---
 
 export default function Home(){
-  const [currentImage, setCurrentImage] = useState(0);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((currentImage + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
-    return () => clearInterval(interval);
-  }, [currentImage]);
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * The homepage of the site, containing the main heading and a call to action to book a session.
- * The images inside of the poloroid photos should 'rotate' to new images periodically maybe about a 1 minute or so.
- */
   return (
-    //The images inside of the poloroid photos hould 'rotate' to new images periodically maybe about a 1 minute or so
-    <div className="bg-[#EFD5AD] min-h-screen w-full flex flex-col items-center justify-center p-0 m-0 font-[family-name:var(--font-geist-sans)] overflow-hidden h-screen">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-      <div id ="title" className="w-[635px] y-2 text-center justify-start translate-y-70">
-      {/* Polaroids: show 1 on mobile, 5 on desktop */}
-      {isMobile ? (
-        <>
-          <Image
-            src={images[currentImage]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-110%] translate-x-[50%] rotate-2 aspect-[4/5]"
-            width={290}
-            height={250}
-          />
-          <Image
-            id="poloroid1"
-            src={poloroid}
-            alt="Polaroid"
-            className="absolute z-0 translate-y-[-100%] rotate-2"
-          />
-        </>
-      ) : (
-        <>
-          <Image
-            src={images[currentImage]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-110%] translate-x-[50%] rotate-2 aspect-[4/5]"
-            width={290}
-            height={250}
-          />
-          <Image
-            id="poloroid1"
-            src={poloroid}
-            alt="Polaroid"
-            className="absolute z-0 translate-y-[-100%] rotate-2"
-          />
-          {/* second pol */}
-          <Image
-            src={images[(currentImage + 1) % images.length]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-225%] translate-x-[-175%] rotate-12 aspect-[4/5]"
-            width={140}
-            height={140}
-          />
-          <Image
-            id="poloroid2"
-            src={poloroid}
-            alt="Polaroid"
-            className="object-cover absolute z-0 translate-y-[-120%] translate-x-[-80%] rotate-12 scale-50 "
-          />
-          {/* third pol */}
-          <Image
-            src={images[(currentImage + 2) % images.length]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-170%] translate-x-[390%] rotate-350 aspect-[4/5]"
-            width={170}
-            height={170}
-          />
-          <Image
-            id="poloroid3"
-            src={poloroid}
-            alt="Polaroid"
-            className="absolute z-0 translate-y-[-110%] translate-x-[80%] rotate-350 scale-60"
-          />
-          {/* fourth pol */}
-          <Image
-            src={images[(currentImage + 3) % images.length]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-35%] translate-x-[315%] rotate-12 aspect-[4/5]"
-            width={220}
-            height={220}
-          />
-          <Image
-            id="poloroid4"
-            src={poloroid}
-            alt="Polaroid"
-            className="absolute z-0 translate-y-[-40%] translate-x-[90%] rotate-12 scale-75"
-          />
-          {/* fifth pol */}
-          <Image
-            src={images[(currentImage + 4) % images.length]}
-            alt="Rotating Polaroid"
-            className="object-cover z-0 absolute translate-y-[-55%] translate-x-[-155%] rotate-350 aspect-[4/5]"
-            width={225}
-            height={225}
-          />
-          <Image
-            id="poloroid5"
-            src={poloroid}
-            alt="Polaroid"
-            className="absolute z-0 translate-y-[-50%] translate-x-[-90%] rotate-350 scale-80"
-          />
-        </>
-      )}
-      {isMobile ? (
-        <>
-          <span className="text-white text-2xl font-normal font-['Iowan_Old_Style']">Bringing </span>
-          <span className="text-orange-500 text-2xl font-bold font-['Iowan_Old_Style'] italic">AESTHETIC </span>
-          <span className="text-white text-2xl font-normal font-['Iowan_Old_Style']">into Photography</span>
-        </>
-      ) : (
-        <>
-          <span className="text-white text-6xl font-normal font-['Iowan_Old_Style']">Bringing </span>
-          <span className="text-orange-500 text-6xl font-bold font-['Iowan_Old_Style'] italic">AESTHETIC </span>
-          <span className="text-white text-6xl font-normal font-['Iowan_Old_Style']">into Photography</span>
-        </>
-      )}    
-    
+    <>
+      <style>{keyframes}</style>
+      <div 
+        className="min-h-screen w-full font-['Lora',_serif] text-[#5D4037]"
+        style={{ backgroundColor: '#FDF8F0', backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\"6\" height=\"6\" viewBox=\"0 0 6 6\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.1\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M5 0h1L0 6V5zM6 5v1H5z\"/%3E%3C/g%3E%3C/svg%3E")' }}
+      >
+        <Navbar isMobile={isMobile} />
 
+        {/* --- Hero Section --- */}
+        <main className="pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
+          <div className="relative w-full max-w-5xl h-[600px] flex items-center justify-center mb-12">
+            <ScrapbookImage 
+              src={images[1]} 
+              alt="Scrapbook main image" 
+              rotation={-8} 
+              width={450} 
+              height={560} 
+              className="z-10 absolute left-0 top-0 w-[350px] md:w-[450px]" 
+            />
+            <ScrapbookImage 
+              src={images[2]} 
+              alt="Scrapbook secondary image" 
+              rotation={12} 
+              width={300} 
+              height={375} 
+              className="absolute right-0 bottom-0 w-[250px] md:w-[300px]" 
+            />
+            <Sunflower className="absolute top-12 right-200 z-20 transform scale-110" />
+            <Sunflower className="absolute bottom-16 left-0 z-20" />
+          </div>
+          
+          <h1 className="font-['Kalam',_cursive] text-5xl md:text-7xl text-[#D57149] mb-4" style={{ animation: 'popIn 1s ease-out' }}>
+            Mylestography
+          </h1>
+          <p className="text-lg md:text-xl max-w-md mx-auto" style={{ animation: 'fadeIn 1s ease-out 0.5s backwards' }}>
+            Crafting beautiful, authentic stories through the art of photography.
+          </p>
+        </main>
+
+        {/* --- About Section --- */}
+        <Section className="bg-white/50">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative w-full h-96 flex items-center justify-center">
+                <Sunflower className="w-64 h-64" />
+            </div>
+            <div className="text-center md:text-left">
+              <h2 className="font-['Kalam',_cursive] text-4xl text-[#D57149] mb-4">My Philosophy</h2>
+              <p className="mb-4">
+                Welcome! I'm Myles, the heart behind the lens. For me, photography is about more than just pictures; it's about connection, emotion, and preserving the moments that matter most.
+              </p>
+              <p>
+                My style is warm, natural, and filled with light. I want you to feel comfortable, have fun, and walk away with images that are a true reflection of you.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        {/* --- Portfolio Preview --- */}
+        <Section>
+            <h2 className="font-['Kalam',_cursive] text-4xl md:text-5xl text-center text-[#D57149] mb-12">From the Portfolio</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+                <div className="md:mt-12"><ScrapbookImage src={images[4]} alt="Portfolio image 1" rotation={-4} width={250} height={310} className="w-full h-auto" /></div>
+                <div><ScrapbookImage src={images[5]} alt="Portfolio image 2" rotation={3} width={250} height={310} className="w-full h-auto" /></div>
+                <div className="md:mt-12"><ScrapbookImage src={images[6]} alt="Portfolio image 3" rotation={-2} width={250} height={310} className="w-full h-auto" /></div>
+                <div><ScrapbookImage src={images[7]} alt="Portfolio image 4" rotation={5} width={250} height={310} className="w-full h-auto" /></div>
+            </div>
+            <div className="text-center mt-12">
+                <a href="/gallery" className="text-[#D57149] font-bold text-xl hover:underline">Explore the Full Gallery &rarr;</a>
+            </div>
+        </Section>
+
+        {/* --- Booking CTA --- */}
+        <Section className="bg-white/50 text-center">
+            <Sunflower className="mx-auto mb-4" />
+            <h2 className="font-['Kalam',_cursive] text-4xl md:text-5xl text-[#D57149] mb-4">Ready to Create Magic?</h2>
+            <p className="max-w-xl mx-auto mb-8">
+                I'm so excited to hear about your vision. Let's work together to create something beautiful that you'll treasure for years to come.
+            </p>
+            <a
+              href="/book"
+              className="inline-block px-12 py-4 text-lg font-bold text-white bg-[#D57149] rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
+            >
+              Book a Session
+            </a>
+        </Section>
+
+        {/* --- Footer --- */}
+        <footer className="bg-[#5D4037] text-white/80 py-8 px-4 text-center font-sans">
+            <p>&copy; {new Date().getFullYear()} Mylestography. All Rights Reserved.</p>
+            <p className="text-sm opacity-70">Designed with love & a sprinkle of code</p>
+        </footer>
       </div>
-      {isMobile ? (
-        <button
-          className="w-50 h-14 bg-orange-300 rounded-2xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-black font-['Iowan_Old_Style'] justify-start transform translate-y-70 translate-x-0 text-2xl hover:bg-orange-400 transition"
-          onClick={() => window.location.href = '/book'}
-        >
-          book a session
-        </button>
-      ) : (
-        <button
-          className="w-50 h-14 bg-orange-300 rounded-2xl shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border border-black font-['Iowan_Old_Style'] justify-start transform translate-y-70 translate-x-50 text-2xl hover:bg-orange-400 transition"
-          onClick={() => window.location.href = '/book'}
-        >
-          book a session
-        </button>
-      )}
-     
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-        <Navbar />
-        </div>
-      </main>                
-    </div>
+    </>
   );
 }
