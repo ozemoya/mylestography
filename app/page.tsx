@@ -47,7 +47,7 @@ export default function Home(){
 
         {/* --- Hero Section --- */}
         <main className="pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
-          <div className="relative w-full max-w-5xl h-[600px] flex items-center justify-center mb-12">
+            <div className="relative w-full max-w-5xl h-[600px] flex items-center justify-center mb-12">
             <ScrapbookImage 
               src={images[1]} 
               alt="Scrapbook main image" 
@@ -64,9 +64,9 @@ export default function Home(){
               height={375} 
               className="absolute right-0 bottom-0 w-[250px] md:w-[300px]" 
             />
-            <Sunflower className="absolute top-12 right-200 z-20 transform scale-110" />
-            <Sunflower className="absolute bottom-15 left-0 z-20" />
-          </div>
+            <Image src="/Sunflower.png" alt="Sunflower decoration" width={100} height={100} className="absolute top-12 right-12 z-20 transform scale-110" />
+            <Image src="/Sunflower.png" alt="Sunflower decoration" width={80} height={80} className="absolute bottom-12 left-12 z-20" />
+            </div>
           
           <h1 className="font-['Kalam',_cursive] text-5xl md:text-7xl text-[#D57149] mb-4" style={{ animation: 'popIn 1s ease-out' }}>
             Mylestography
@@ -80,7 +80,7 @@ export default function Home(){
         <Section className="bg-white/50">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative w-full h-96 flex items-center justify-center">
-                <Sunflower className="w-64 h-64" />
+                <Image src="/Sunflower.png" alt="Sunflower decoration" width={256} height={256} className="w-64 h-64" />
             </div>
             <div className="text-center md:text-left">
               <h2 className="font-['Kalam',_cursive] text-4xl text-[#D57149] mb-4">My Philosophy</h2>
@@ -110,11 +110,6 @@ export default function Home(){
 
         {/* --- Booking CTA --- */}
         <Section className="bg-white/50 text-center">
-            <Sunflower className="mx-auto mb-4" />
-            <h2 className="font-['Kalam',_cursive] text-4xl md:text-5xl text-[#D57149] mb-4">Ready to Create Magic?</h2>
-            <p className="max-w-xl mx-auto mb-8">
-                I'm so excited to hear about your vision. Let's work together to create something beautiful that you'll treasure for years to come.
-            </p>
             <a
               href="/book"
               className="inline-block px-12 py-4 text-lg font-bold text-white bg-[#D57149] rounded-full shadow-lg transition-transform duration-300 hover:scale-105"
