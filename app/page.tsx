@@ -48,6 +48,7 @@ export default function Home(){
         {/* --- Hero Section --- */}
         <main className="pt-24 pb-12 flex flex-col items-center justify-center text-center overflow-hidden">
             <div className="relative w-full max-w-5xl h-[600px] flex items-center justify-center mb-12">
+           
             <ScrapbookImage 
               src={images[1]} 
               alt="Scrapbook main image" 
@@ -64,8 +65,8 @@ export default function Home(){
               height={375} 
               className="absolute right-0 bottom-0 w-[250px] md:w-[300px]" 
             />
-            <Image src="/Sunflower.png" alt="Sunflower decoration" width={100} height={100} className="absolute top-12 right-12 z-20 transform scale-110" />
-            <Image src="/Sunflower.png" alt="Sunflower decoration" width={80} height={80} className="absolute bottom-12 left-12 z-20" />
+            <Image src="/Sunflower.png" alt="Sunflower decoration" width={100} height={100} className="absolute top-25 right-19 z-20 transform scale-110" />
+            <Image src="/Sunflower.png" alt="Sunflower decoration" width={200} height={200} className="absolute mt-120 left-30 z-20" />
             </div>
           
           <h1 className="font-['Kalam',_cursive] text-5xl md:text-7xl text-[#D57149] mb-4" style={{ animation: 'popIn 1s ease-out' }}>
@@ -76,23 +77,6 @@ export default function Home(){
           </p>
         </main>
 
-        {/* --- About Section --- */}
-        <Section className="bg-white/50">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full h-96 flex items-center justify-center">
-                <Image src="/Sunflower.png" alt="Sunflower decoration" width={256} height={256} className="w-64 h-64" />
-            </div>
-            <div className="text-center md:text-left">
-              <h2 className="font-['Kalam',_cursive] text-4xl text-[#D57149] mb-4">My Philosophy</h2>
-              <p className="mb-4">
-                Welcome! I'm Myles, the heart behind the lens. For me, photography is about more than just pictures; it's about connection, emotion, and preserving the moments that matter most.
-              </p>
-              <p>
-                My style is warm, natural, and filled with light. I want you to feel comfortable, have fun, and walk away with images that are a true reflection of you.
-              </p>
-            </div>
-          </div>
-        </Section>
 
         {/* --- Portfolio Preview --- */}
         <Section>
@@ -104,7 +88,7 @@ export default function Home(){
                 <div><ScrapbookImage src={images[7]} alt="Portfolio image 4" rotation={5} width={250} height={310} className="w-full h-auto" /></div>
             </div>
             <div className="text-center mt-12">
-                <a href="/gallery" className="text-[#D57149] font-bold text-xl hover:underline">Explore the Full Gallery &rarr;</a>
+                <a href="/gallery" className="text-[#D57149] font-bold text-xl hover:underline">Explore the Garden &rarr;</a>
             </div>
         </Section>
 
@@ -121,7 +105,7 @@ export default function Home(){
         {/* --- Footer --- */}
         <footer className="bg-[#5D4037] text-white/80 py-8 px-4 text-center font-sans">
             <p>&copy; {new Date().getFullYear()} Mylestography. All Rights Reserved.</p>
-            <p className="text-sm opacity-70">Designed with love & a sprinkle of code</p>
+            
         </footer>
       </div>
     </>

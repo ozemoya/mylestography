@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Image from 'next/image';
 
 const Navbar = ({ isMobile }: { isMobile?: boolean }) => {
   return (
@@ -10,6 +11,7 @@ const Navbar = ({ isMobile }: { isMobile?: boolean }) => {
       >
         mylestography
       </a>
+      <Image src="/Sunflower.png" alt="Sunflower logo" width={40} height={40} className="translate-x-1000"/>  
       <div className="flex gap-8 items-center">
         <a 
           href="/gallery" 
