@@ -8,6 +8,13 @@ import useIsMobile from '../components/useIsMobile';
 import ScrapbookImage from '../components/ScrapbookImage';
 import Sunflower from '../components/Sunflower';
 
+const keyframes = `
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+`;
+
 const menuLinks = [
     { href: 'https://ozemoya.github.io/', label: 'Personal Website' },
     { href: 'https://www.instagram.com/mylestography/?next=%2F', label: 'Instagram' },
@@ -27,7 +34,9 @@ export default function MenuPage() {
   }, []);
 
   return (
-    <div 
+    <>
+    <style>{keyframes}</style>
+    <div
       className="min-h-screen text-[#4a3b34] p-4 sm:p-6 md:p-8"
       style={{
         backgroundColor: '#FDF8F0',
@@ -37,9 +46,19 @@ export default function MenuPage() {
       }}
     >
       <Navbar isMobile={isMobile} />
-      <main className="container mx-auto pt-24">
-        
-        
+      <main className="container mx-auto pt-24 relative overflow-hidden">
+        {/* Scattered sunflowers - background layer - artistic placement */}
+        <Image src="/Sunflower.png" alt="Sunflower" width={135} height={135} className="absolute -top-10 -left-10 z-0 opacity-40 hidden lg:block" style={{ animation: 'spin 28s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={70} height={70} className="absolute top-24 left-1/4 z-0 opacity-30" style={{ animation: 'spin 18s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={105} height={105} className="absolute top-12 -right-8 z-0 opacity-45 hidden lg:block" style={{ animation: 'spin 24s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={55} height={55} className="absolute top-1/3 right-12 z-0 opacity-25" style={{ animation: 'spin 16s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={85} height={85} className="absolute top-1/2 left-6 z-0 opacity-35" style={{ animation: 'spin 21s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={95} height={95} className="absolute top-2/3 right-16 z-0 opacity-30" style={{ animation: 'spin 23s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={150} height={150} className="absolute -bottom-12 -left-14 z-0 opacity-50 hidden lg:block" style={{ animation: 'spin 32s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={75} height={75} className="absolute bottom-24 right-1/4 z-0 opacity-35" style={{ animation: 'spin 19s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={60} height={60} className="absolute bottom-16 left-1/3 z-0 opacity-25" style={{ animation: 'spin 17s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={110} height={110} className="absolute bottom-8 -right-6 z-0 opacity-40 hidden lg:block" style={{ animation: 'spin 26s linear infinite' }} />
+
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left side: Menu Links */}
           <nav className="flex flex-col gap-6 items-center md:items-start text-center md:text-left relative z-10 order-2 md:order-1">
@@ -98,5 +117,6 @@ export default function MenuPage() {
         <p>&copy; 2024 Mylestography. All rights reserved.</p>
       </footer>
     </div>
+    </>
   );
 }

@@ -1,12 +1,18 @@
 // Internal booking form with thank you message on submit
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import useIsMobile from "../components/useIsMobile";
 import Sunflower from '../components/Sunflower';
 
 const keyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 `;
 
 export default function BookPage() {
@@ -48,7 +54,18 @@ export default function BookPage() {
       style={{ backgroundColor: '#FDF8F0', backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\"6\" height=\"6\" viewBox=\"0 0 6 6\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.1\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M5 0h1L0 6V5zM6 5v1H5z\"/%3E%3C/g%3E%3C/svg%3E")' }}
     >
       <Navbar isMobile={isMobile} />
-      <main className="py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <main className="py-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center relative overflow-hidden">
+        {/* Scattered sunflowers - background layer - artistic placement */}
+        <Image src="/Sunflower.png" alt="Sunflower" width={140} height={140} className="absolute -top-8 -left-12 z-0 opacity-35 hidden lg:block" style={{ animation: 'spin 29s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={60} height={60} className="absolute top-20 left-1/4 z-0 opacity-25" style={{ animation: 'spin 16s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={120} height={120} className="absolute top-16 -right-10 z-0 opacity-45 hidden lg:block" style={{ animation: 'spin 27s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={75} height={75} className="absolute top-1/3 right-16 z-0 opacity-30" style={{ animation: 'spin 19s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={90} height={90} className="absolute top-1/2 left-8 z-0 opacity-35" style={{ animation: 'spin 22s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={55} height={55} className="absolute top-2/3 right-12 z-0 opacity-25" style={{ animation: 'spin 17s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={130} height={130} className="absolute bottom-24 -left-8 z-0 opacity-50 hidden lg:block" style={{ animation: 'spin 31s linear infinite reverse' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={85} height={85} className="absolute bottom-32 right-20 z-0 opacity-40" style={{ animation: 'spin 20s linear infinite' }} />
+        <Image src="/Sunflower.png" alt="Sunflower" width={65} height={65} className="absolute bottom-16 left-1/4 z-0 opacity-30" style={{ animation: 'spin 18s linear infinite reverse' }} />
+
         <div className="w-full max-w-2xl text-center">
             <Sunflower className="mx-auto mb-4" />
             <h1 className="font-['Kalam',_cursive] text-5xl md:text-7xl text-[#D57149] mb-6">
