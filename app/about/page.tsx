@@ -1,28 +1,5 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-
-export default function About() {
-  return (
-    <div className="min-h-screen bg-[#EFD5AD] text-[#171717]">
-      <Navbar />
-      <div className="container mx-auto p-8">
-        <h1 className="text-5xl font-bold font-['Iowan_Old_Style'] text-center mb-8">
-          About Mylestography
-        </h1>
-        <p className="text-xl leading-relaxed mb-6">
-          Welcome to Mylestography, where we turn moments into timeless art. Our passion
-          is capturing the beauty of life and transforming it into striking visual stories.
-        </p>
-        <p className="text-xl leading-relaxed mb-6">
-          Founded by a team of dedicated photographers and creatives, we blend modern techniques
-          with classic aesthetics to deliver an experience that resonates with originality and depth.
-        </p>
-        <p className="text-xl leading-relaxed">
-          Whether it's portrait sessions, breathtaking landscapes, or dynamic events, we
-          work with you to create images that speak volumes. Thank you for choosing us to capture
-          your precious moments.
-        </p>
-      </div>
-    </div>
-  )
-}
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "../components/Navbar";
+import images from "../images.js";
+export default function About(){return <div><div className="inner-header"><Navbar/></div><main className="page-main about-grid"><div className="about-image"><Image src={images[95]} alt="Mylestography portrait" fill sizes="(max-width: 700px) 100vw, 50vw"/></div><div className="about-copy"><p className="eyebrow">Behind the lens</p><h1>Photographs with soul.</h1><p>Mylestography is built around a simple belief: the most powerful images don’t just show how a moment looked—they bring back how it felt.</p><p>With a style that blends cinematic color, thoughtful composition, and natural expression, every session is shaped around the person in front of the camera. Expect gentle direction, room to be yourself, and photographs that feel polished without losing their honesty.</p><Link href="/book" className="text-link">Work with me <span>↗</span></Link></div></main></div>}

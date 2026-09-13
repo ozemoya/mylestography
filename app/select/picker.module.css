@@ -1,0 +1,33 @@
+.picker { padding: 36px 4vw 170px; max-width: 1800px; margin: auto; }
+.heading { max-width: 720px; margin-bottom: 36px; }
+.back { font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .2em; font-size: 11px; margin: 40px 0 16px; }
+.heading h1 { font-size: clamp(40px, 6vw, 72px); letter-spacing: -.045em; }
+.heading > p:last-child { line-height: 1.6; color: #56524b; }
+.toolbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button, .more { border: 1px solid #b7b2a8; background: transparent; padding: 12px 16px; cursor: pointer; font-size: 13px; }
+.filters button[aria-pressed=true] { background: #171612; color: white; border-color: #171612; }
+.search { display: grid; gap: 6px; font-size: 12px; }
+.search input { padding: 12px; background: white; border: 1px solid #b7b2a8; font-size: 14px; }
+.status { display: flex; justify-content: space-between; align-items: center; margin: 26px 0 16px; gap: 12px; font-size: 13px; }
+.status button { border: 0; background: none; text-decoration: underline; cursor: pointer; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.card { padding: 0; text-align: left; background: #fff; border: 2px solid transparent; cursor: pointer; min-width: 0; color: #171612; }
+.card[aria-pressed=true] { border-color: #a63626; box-shadow: 0 0 0 2px #a63626; }
+.photo { display: block; position: relative; aspect-ratio: 3 / 4; background: #e6e3dc; }
+.photo img { object-fit: contain; }
+.check { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; display: grid; place-items: center; background: #fff; color: #171612; border-radius: 50%; font-size: 20px; box-shadow: 0 1px 8px #0003; }
+.card[aria-pressed=true] .check { background: #a63626; color: white; }
+.caption { display: block; padding: 12px; font-size: 13px; overflow-wrap: anywhere; }
+.caption small { display: block; margin-top: 5px; color: #6b665d; }
+.card[aria-pressed=true] small { color: #a63626; }
+.more { display: block; margin: 32px auto; }
+.savebar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: #f2f0e9; border-top: 1px solid #b7b2a8; box-shadow: 0 -5px 20px #0001; padding: 20px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.savebar strong { font-size: 14px; }
+.savebar p { font-size: 13px; margin: 6px 0 0; line-height: 1.5; max-width: 650px; }
+.savebar > button { flex-shrink: 0; padding: 15px 22px; border: none; background: #171612; color: #fff; font-size: 14px; cursor: pointer; }
+.picker button:focus-visible, .picker input:focus-visible, .picker a:focus-visible { outline: 3px solid #1967b3; outline-offset: 4px; }
+.picker button:disabled { opacity: .5; cursor: default; }
+@media(max-width:1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media(max-width:600px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .savebar { align-items: stretch; flex-direction: column; gap: 12px; padding: 14px 4vw; } .picker { padding-bottom: 210px; } .caption { font-size: 11px; padding: 8px; } }
