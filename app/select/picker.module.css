@@ -12,6 +12,9 @@
 .search input { padding: 12px; background: white; border: 1px solid #b7b2a8; font-size: 14px; }
 .status { display: flex; justify-content: space-between; align-items: center; margin: 26px 0 16px; gap: 12px; font-size: 13px; }
 .status button { border: 0; background: none; text-decoration: underline; cursor: pointer; }
+.bulk { padding: 16px; margin-bottom: 24px; border: 1px solid #b7b2a8; }
+.bulk p { font-size: 13px; line-height: 1.6; margin: 12px 0 0; color: #56524b; }
+.card { user-select: none; }
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .card { padding: 0; text-align: left; background: #fff; border: 2px solid transparent; cursor: pointer; min-width: 0; color: #171612; }
 .card[aria-pressed=true] { border-color: #a63626; box-shadow: 0 0 0 2px #a63626; }

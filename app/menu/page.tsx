@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import images from '../images.js';
+import { visibleImages as images } from '../portfolio';
 import Navbar from '../components/Navbar';
 import useIsMobile from '../components/useIsMobile';
 import ScrapbookImage from '../components/ScrapbookImage';

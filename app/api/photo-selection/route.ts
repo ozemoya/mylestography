@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import images from "../../images.js";
+import { visibleImages as images } from "../../portfolio";
 
 const selectionFile = path.resolve(process.cwd(), "../work/photo-selection.json");
 const allowed = new Set(images);
