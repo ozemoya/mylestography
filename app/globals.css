@@ -67,3 +67,15 @@ footer { background: #38291d; color: #fff8e9; }
   .mixed-media { grid-template-columns: 1fr; }
   .mixed-media-player iframe { height: 610px; }
 }
+@keyframes sunflower-sway {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
+.wordmark::before, .hero-copy::before {
+  animation: sunflower-sway 7s ease-in-out infinite;
+  transform-origin: center 75%;
+}
+.hero-copy::before { animation-delay: -3.5s; }
+@media (prefers-reduced-motion: reduce) {
+  .wordmark::before, .hero-copy::before { animation: none; transform: none; }
+}
