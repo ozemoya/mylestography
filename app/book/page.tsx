@@ -1,4 +1,11 @@
-"use client";
-import {useState} from "react";
-import Navbar from "../components/Navbar";
-export default function BookPage(){const[submitted,setSubmitted]=useState(false);const[error,setError]=useState("");const[form,setForm]=useState({name:"",email:"",phone:"",message:""});function change(e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>){setForm({...form,[e.target.name]:e.target.value})}async function submit(e:React.FormEvent){e.preventDefault();setError("");try{const res=await fetch("/api/book",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(form)});if(!res.ok)throw new Error();setSubmitted(true)}catch{setError("Something went wrong. Please try again in a moment.")}}return <div><div className="inner-header"><Navbar/></div><main className="page-main contact-grid"><div><p className="eyebrow">Inquiries</p><h1 className="page-title">Let’s create<br/><em>together.</em></h1><p className="page-deck">Tell me a little about what you’re envisioning. I’ll be in touch with availability and next steps.</p></div>{submitted?<div className="thank-you">Thank you for reaching out.<br/>Your message is on its way, and I’ll get back to you soon.</div>:<form className="contact-form" onSubmit={submit}><div className="field"><label htmlFor="name">Your name</label><input id="name" name="name" value={form.name} onChange={change} required/></div><div className="field"><label htmlFor="email">Email address</label><input id="email" name="email" type="email" value={form.email} onChange={change} required/></div><div className="field"><label htmlFor="phone">Phone <span>(optional)</span></label><input id="phone" name="phone" type="tel" value={form.phone} onChange={change}/></div><div className="field"><label htmlFor="message">Tell me about your session</label><textarea id="message" name="message" rows={6} value={form.message} onChange={change} required/></div><button className="submit-button" type="submit">Send inquiry ↗</button>{error&&<p className="form-error">{error}</p>}</form>}</main></div>}
+import BookingContent from "./BookingContent";
+
+export default function BookPage() {
+  const configuredUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/myleskmiller/photo-video-session";
+  let calendlyUrl = "";
+  try {
+    const url = new URL(configuredUrl);
+    if (url.protocol === "https:" && url.hostname === "calendly.com" && url.pathname !== "/") calendlyUrl = url.toString();
+  } catch { /* Keep the inquiry flow available until scheduling is configured. */ }
+  return <BookingContent calendlyUrl={calendlyUrl} />;
+}
