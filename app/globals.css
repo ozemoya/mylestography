@@ -29,6 +29,7 @@
 .eyebrow { color: #866029; }
 .intro h2 em { color: #9c762e; }
 .editorial-item { border-radius: 3px; }
+.editorial-item img[src*="DSCF2265"] { object-position: center top; }
 .services { background: #f5edda; border-radius: 4px; margin-bottom: 7rem; }
 .service-row span { color: #7e591e; opacity: 1; }
 .closing-cta .button-light { background: #eed084; color: #38291d; border-color: #eed084; }
