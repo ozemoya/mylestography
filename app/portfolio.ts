@@ -23,7 +23,6 @@ const gallerySelection = [
   folderPhoto("DSC00835"),
   folderPhoto("DSC00787"),
   folderPhoto("DSCF2006"),
-  folderPhoto("DSC06561"),
   folderPhoto("DSCF1142"),
   folderPhoto("DSCF0746"),
   folderPhoto("DSCF2265"),
