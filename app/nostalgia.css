@@ -32,6 +32,17 @@ html{scroll-behavior:auto}
 .retro-site .poster-footer-links a{font-family:"Courier New",Courier,monospace;font-size:.75rem}
 .desktop-window-titlebar,.desktop-browser-toolbar,.desktop-taskbar,.desktop-start-menu,.desktop-shortcuts,.music-player{font-family:Tahoma,"MS Sans Serif",Verdana,Arial,sans-serif}
 .music-player-label,.music-player-title{font-family:"Courier New",Courier,monospace}
+/* Keep the wallpaper grid behind the app window and desktop icons. */
+.desktop-wallpaper-grid{position:absolute;z-index:1;inset:0 0 48px;width:110%;height:calc(100% - 48px);fill:none;stroke:#e3d4a7;stroke-width:1.5;opacity:.28;pointer-events:none;animation:wallpaper-grid-drift 14s linear infinite alternate!important}
+@keyframes wallpaper-grid-drift{from{transform:translateX(-8%)}to{transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.desktop-wallpaper-grid{animation:none!important;transform:translateX(-4%)}}
+/* The music control belongs in the taskbar, not above the viewport. */
+body:has(.desktop-shell) .music-player{position:fixed;z-index:65;left:278px;bottom:6px;max-width:260px;padding:2px 4px 2px 8px;gap:6px;box-shadow:none}
+body:has(.desktop-shell) .music-player-copy{max-width:145px}
+body:has(.desktop-shell) .music-player-label{display:none}
+body:has(.desktop-shell) .music-player-title{font-size:.65rem}
+body:has(.desktop-shell) .music-player button{min-height:25px;min-width:48px;padding:2px 5px;font-size:.6rem}
+@media(max-width:700px){body:has(.desktop-shell) .music-player{left:7px;bottom:57px;max-width:235px;padding:4px 6px}}
 .desktop-window-title,.desktop-start,.desktop-task-button,.desktop-shortcut{letter-spacing:0;text-shadow:none}
 .desktop-shortcut{color:#fff4d9;text-shadow:1px 1px #20362a}
 .retro-site .poster-button:hover,.retro-site .package-card button:hover,.retro-site .submit-button:hover,.retro-site .poster-work-item:hover img,.retro-site .gallery-card:hover img{transform:none}

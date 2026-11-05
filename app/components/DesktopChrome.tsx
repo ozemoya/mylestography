@@ -70,6 +70,16 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
     <video className="desktop-wallpaper-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
       <source src="/wallpaper-logo.webm" type="video/webm" />
     </video>
+    <svg className="desktop-wallpaper-grid" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+      {Array.from({ length: 33 }, (_, index) => {
+        const x = index * 50;
+        return <path key={`v-${index}`} d={`M ${x} 0 C ${x - 28} 225, ${x + 34} 420, ${x - 20} 650 S ${x + 12} 840, ${x} 900`} />;
+      })}
+      {Array.from({ length: 19 }, (_, index) => {
+        const y = index * 50;
+        return <path key={`h-${index}`} d={`M 0 ${y} C 350 ${y - 18}, 530 ${y + 24}, 800 ${y} S 1230 ${y - 18}, 1600 ${y + 10}`} />;
+      })}
+    </svg>
     <nav className="desktop-shortcuts" aria-label="Desktop shortcuts">
       {apps.map((app) => <button type="button" key={app.path} className="desktop-shortcut" onClick={() => openApp(app.path)}><AppIcon icon={app.icon} /><span>{app.name}</span></button>)}
     </nav>
