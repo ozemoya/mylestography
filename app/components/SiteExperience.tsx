@@ -7,12 +7,12 @@ export default function SiteExperience({ children }: { children: React.ReactNode
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const [volumeOpen, setVolumeOpen] = useState(false);
-  const [volume, setVolume] = useState(30);
+  const [volume, setVolume] = useState(3);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.volume = 0.3;
+    audio.volume = 0.03;
     // Audible autoplay is blocked by some browsers. Retry on the first interaction.
     void audio.play().catch(() => {});
     const playAfterInteraction = (event: Event) => {
