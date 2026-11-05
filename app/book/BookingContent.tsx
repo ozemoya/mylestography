@@ -1,6 +1,8 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import SiteFooter from "../components/SiteFooter";
 import { packages, priceRange, depositRange, packageLabel } from "./packages";
 
 export default function BookingContent() {
@@ -27,13 +29,14 @@ export default function BookingContent() {
     } catch { setError("Your inquiry could not be sent. Please try again or email myleskmiller@gmail.com."); }
     finally { setSending(false); }
   }
-  return <div>
+  return <div className="retro-site">
     <div className="inner-header"><Navbar /></div>
     <main className="page-main booking-page">
       <header className="booking-intro">
         <p className="eyebrow">Photos · Video · Mixed media</p>
         <h1 className="page-title">Let’s create<br /><em>together.</em></h1>
         <p className="page-deck">Photography, video and mixed media, built around your idea.</p>
+        <div className="poster-book-visual"><Image src="/images/folder-collection/DSCF2006.webp" alt="Golden portrait photographed by Mylestography" fill priority unoptimized sizes="(max-width: 760px) 100vw, 45vw" /></div>
       </header>
       <section aria-labelledby="packages-heading">
         <h2 id="packages-heading" className="booking-section-title">Find your fit.</h2>
@@ -64,6 +67,7 @@ export default function BookingContent() {
         </form>}
       </section>
     </main>
+    <SiteFooter />
   </div>;
 }
 
