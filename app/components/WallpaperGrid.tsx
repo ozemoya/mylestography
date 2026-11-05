@@ -32,28 +32,30 @@ export default function WallpaperGrid() {
     }
 
     function warp(x: number, y: number): [number, number] {
-      const centerX = width * 0.02;
-      const spread = width * 0.12;
-      const arc = Math.exp(-Math.pow((x - centerX) / spread, 2));
-      const verticalFade = Math.max(0, Math.sin(Math.PI * y / height));
-      return [x + 24 * arc * verticalFade, y - 72 * arc * verticalFade];
+      const dx = x - width / 2;
+      const dy = y - height / 2;
+      const radius = Math.hypot(width, height) * 0.85;
+      const distanceSquared = dx * dx + dy * dy;
+      const inward = 0.3 * Math.max(0, 1 - distanceSquared / (radius * radius));
+      return [x - dx * inward, y - dy * inward];
     }
 
     function draw(offset: number) {
       if (!context) return;
       context.clearRect(0, 0, width, height);
       context.beginPath();
-      for (let x = -SPACING * 2 - offset; x <= width + SPACING * 2; x += SPACING) {
-        for (let y = -20; y <= height + 20; y += 12) {
+      const margin = Math.max(width, height) * 0.35;
+      for (let x = -margin - offset; x <= width + margin; x += SPACING) {
+        for (let y = -margin; y <= height + margin; y += 12) {
           const [px, py] = warp(x, y);
-          if (y === -20) context.moveTo(px, py);
+          if (y === -margin) context.moveTo(px, py);
           else context.lineTo(px, py);
         }
       }
-      for (let y = -SPACING; y <= height + SPACING; y += SPACING) {
-        for (let x = -20; x <= width + 20; x += 12) {
+      for (let y = -margin; y <= height + margin; y += SPACING) {
+        for (let x = -margin; x <= width + margin; x += 12) {
           const [px, py] = warp(x - offset, y);
-          if (x === -20) context.moveTo(px, py);
+          if (x === -margin) context.moveTo(px, py);
           else context.lineTo(px, py);
         }
       }
