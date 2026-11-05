@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./retro.css";
+import "./windows.css";
 import SiteExperience from "./components/SiteExperience";
 
 export const metadata: Metadata = {
