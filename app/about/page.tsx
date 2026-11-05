@@ -12,11 +12,10 @@ export default function About() {
       <main className="poster-about">
         <div className="poster-about-photo"><Image src={aboutImage} alt="Portrait by Mylestography" fill sizes="(max-width: 760px) 100vw, 50vw" /></div>
         <section className="poster-about-copy">
-          <p className="poster-label">BEHIND THE LENS / MYLESTOGRAPHY</p>
-          <h1>Photographs<br />with <em>soul.</em></h1>
-          <p>Mylestography is built around a simple belief: the most powerful images don&apos;t just show how a moment looked—they bring back how it felt.</p>
-          <p>With a style that blends cinematic color, thoughtful composition, and natural expression, every session is shaped around the person in front of the camera. Expect room to be yourself and photographs that feel polished without losing their honesty.</p>
-          <Link href="/book" className="poster-button">Work with me <span aria-hidden="true">↗</span></Link>
+          <p className="poster-label">MYLESTOGRAPHY / ATLANTA</p>
+          <h1>About.</h1>
+          <p>I&apos;m Myles Miller. I shoot photos, video, and mixed media in Atlanta.</p>
+          <Link href="/book" className="poster-button">BOOK A SHOOT <span aria-hidden="true">↗</span></Link>
         </section>
       </main>
       <SiteFooter />

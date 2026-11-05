@@ -3,10 +3,10 @@ export default function MixedMedia() {
     <section id="mixed-media" className="mixed-media section-wrap" aria-labelledby="mixed-media-title">
       <div className="mixed-media-copy">
         <p className="eyebrow">Mixed media</p>
-        <h2 id="mixed-media-title">Beyond the<br /><em>still frame.</em></h2>
-        <p>I also experiment with mixed media on the side. Peep game.</p>
+        <h2 id="mixed-media-title">Mixed media.</h2>
+        <p>Video and collage work.</p>
         <a className="text-link" href="https://www.instagram.com/p/Da88v3kRvfs/" target="_blank" rel="noopener noreferrer">
-          Watch on Instagram <span aria-hidden="true">↗</span>
+          WATCH VIDEO <span aria-hidden="true">↗</span>
         </a>
       </div>
       <div className="mixed-media-player">

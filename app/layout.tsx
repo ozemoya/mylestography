@@ -3,6 +3,7 @@ import "./globals.css";
 import "./retro.css";
 import "./windows.css";
 import "./desktop.css";
+import "./nostalgia.css";
 import SiteExperience from "./components/SiteExperience";
 
 export const metadata: Metadata = {

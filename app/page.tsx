@@ -17,11 +17,9 @@ export default function Home() {
               <span className="poster-photo-stamp">MYLESTOGRAPHY / 01</span>
             </div>
             <div className="poster-hero-content">
-              <p className="poster-label">Atlanta, GA · Photo / Video / Mixed Media</p>
-              <h1 id="home-title">Images that<br /><em>feel like you.</em></h1>
-              <p className="poster-hero-intro">You won&apos;t see photos like these.</p>
-              <Link href="/gallery" className="poster-button">Explore the portfolio <span aria-hidden="true">↗</span></Link>
-              <p className="poster-hero-bottom">Photography with personality, presence, and a point of view.</p>
+              <p className="poster-label">ATLANTA · PHOTO / VIDEO / MIXED MEDIA</p>
+              <h1 id="home-title">You won&apos;t see<br /><em>photos like these.</em></h1>
+              <Link href="/gallery" className="poster-button">VIEW PHOTOS <span aria-hidden="true">↗</span></Link>
             </div>
           </section>
         </main>
