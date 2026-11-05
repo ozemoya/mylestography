@@ -17,7 +17,6 @@ export default function Home() {
               <span className="poster-photo-stamp">MYLESTOGRAPHY / 01</span>
             </div>
             <div className="poster-hero-content">
-              <p className="poster-label">ATLANTA · PHOTO / VIDEO / MIXED MEDIA</p>
               <h1 id="home-title">You won&apos;t see<br /><em>photos like these.</em></h1>
               <Link href="/gallery" className="poster-button">VIEW PHOTOS <span aria-hidden="true">↗</span></Link>
             </div>
