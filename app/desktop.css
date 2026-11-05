@@ -92,7 +92,7 @@ body:has(.desktop-shell){overflow-y:auto;overflow-x:hidden}
 .retro-flow .poster-marquee{margin:0;border:0;box-shadow:none}
 @media(max-width:700px){.desktop-window-body .retro-site .poster-hero{min-height:0}.desktop-window-body .retro-site .poster-hero-photo{min-height:58svh}.desktop-window-body .retro-site .booking-intro{padding:0 0 4rem}.desktop-window-body .retro-site .booking-page>section{padding:4rem 5vw}.desktop-window-body .retro-site .poster-about{padding:0}.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services){padding:4rem 5vw}}
 /* The supplied animation is keyed to real alpha so the original green wallpaper stays visible. */
-.desktop-wallpaper-video{position:absolute;z-index:1;inset:0 0 48px;width:100%;height:calc(100% - 48px);object-fit:contain;opacity:.7;pointer-events:none}
+.desktop-wallpaper-video{position:absolute;z-index:1;inset:0 0 48px;width:100%;height:calc(100% - 48px);object-fit:contain;opacity:.7;mix-blend-mode:screen;pointer-events:none}
 body:has(.desktop-shell){overflow:hidden}
 .desktop-shell{position:fixed;inset:0;min-height:0;overflow:hidden}
 .desktop-window{position:absolute;top:22px;left:152px;right:28px;bottom:64px;margin:0;min-height:0;height:auto}
