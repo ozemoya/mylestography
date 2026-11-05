@@ -10,6 +10,8 @@ export const newPhotos = [
 ];
 
 export function photoAlt(src: string, fallback: string) {
+  if (src === "/images/featured/sunhat-portrait.webp") return "Golden portrait in a white outfit and wide sunhat against a green sky";
+  if (src === "/images/featured/sunflower-parasol.webp") return "Smiling portrait with a lace parasol in a sunflower field";
   if (src.includes("/folder-collection/")) {
     const name = src.split("/").pop()?.replace(".webp", "") ?? "";
     if (["DSC09450", "DSC09462", "DSC09578"].includes(name)) return "Golden outdoor portrait with sunflowers and a parasol";
