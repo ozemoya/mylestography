@@ -77,7 +77,7 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
       })}
       {Array.from({ length: 19 }, (_, index) => {
         const y = index * 50;
-        return <path key={`h-${index}`} d={`M 0 ${y} C 350 ${y - 18}, 530 ${y + 24}, 800 ${y} S 1230 ${y - 18}, 1600 ${y + 10}`} />;
+        return <path key={`h-${index}`} d={`M 0 ${y} ${Array.from({ length: 32 }, () => "q 12 -10 25 0 q 13 10 25 0").join(" ")}`} />;
       })}
     </svg>
     <nav className="desktop-shortcuts" aria-label="Desktop shortcuts">
