@@ -18,7 +18,6 @@ const keyframes = `
 const menuLinks = [
     { href: 'https://ozemoya.github.io/', label: 'Personal Website' },
     { href: 'https://www.instagram.com/mylestography/?next=%2F', label: 'Instagram' },
-    { href: '/about', label: 'About' },
     { href: '/gallery', label: 'Gallery' },
 ];
 

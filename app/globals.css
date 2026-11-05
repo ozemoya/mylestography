@@ -24,7 +24,7 @@
 .hero .scroll-cue { color: white; }
 .sunflower-ribbon { display: flex; justify-content: center; align-items: center; gap: 4vw; background: #eed084; padding: 24px 5vw; font: italic 1.1rem Georgia, serif; }
 .sunflower-ribbon span[aria-hidden] { color: #906221; font-size: 1.5rem; }
-.intro { position: relative; background: url('/images/new-work/sunflower.webp') right -125px bottom -145px / 270px no-repeat; }
+.intro { position: relative; }
 .eyebrow { color: #866029; }
 .intro h2 em { color: #9c762e; }
 .editorial-item { border-radius: 3px; }
@@ -49,7 +49,6 @@ footer { background: #38291d; color: #fff8e9; }
   .sunflower-ribbon { gap: 14px; padding: 20px 16px; font-size: .85rem; flex-wrap: wrap; }
   .sunflower-ribbon span:last-child { flex-basis: 100%; text-align: center; }
   .sunflower-ribbon span:nth-last-child(2) { display: none; }
-  .intro { background-size: 150px; background-position: right -65px bottom -75px; }
   .services { margin-bottom: 0; }
   .page-main:has(.gallery-grid) { background-size: 55px; background-position: right 20px top 40px; }
   .page-main:has(.gallery-grid) .eyebrow { max-width: 70%; }
