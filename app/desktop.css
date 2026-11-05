@@ -7,7 +7,7 @@ body:has(.desktop-shell){overflow:hidden;background:#3b5741}
 .desktop-shortcut{width:105px;min-height:85px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:4px;border:1px solid transparent;background:transparent;color:#fff4d9;text-shadow:1px 2px #20362a;font:700 .72rem/1.2 Tahoma,Verdana,sans-serif;cursor:pointer;text-align:center}
 .desktop-shortcut:hover,.desktop-shortcut:focus-visible{background:#d7c69d36;border:1px dotted #fff2cd;outline:0}
 .desktop-icon-art{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;filter:drop-shadow(2px 3px 0 #1b3326a8);flex:none}
-.desktop-icon-art svg{width:100%;height:100%}
+.desktop-icon-art img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
 .desktop-window{position:absolute;z-index:10;top:22px;left:152px;right:28px;bottom:64px;display:flex;flex-direction:column;min-width:0;min-height:0;background:#dbcfb5;border:3px solid;border-color:#fff4df #382f25 #382f25 #fff4df;box-shadow:5px 5px 0 #21382a,10px 10px 22px #152c21a6}
 .desktop-window.is-maximized{inset:3px 3px 51px;box-shadow:none}
 .desktop-window-titlebar{height:38px;min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:3px 4px 3px 9px;background:linear-gradient(90deg,#4c684d,#7e684b);color:#fff2d8;border-bottom:2px solid #293b2c;touch-action:none;cursor:move;user-select:none}
@@ -27,7 +27,7 @@ body:has(.desktop-shell){overflow:hidden;background:#3b5741}
 .desktop-window-status{height:25px;min-height:25px;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 10px;background:#d8ccb4;border-top:2px solid #8a7c62;font-size:.65rem;color:#3c513e}
 .desktop-taskbar{position:absolute;z-index:60;left:0;right:0;bottom:0;height:48px;display:flex;align-items:center;gap:7px;padding:5px 8px;background:#d5c6a6;border-top:3px solid #fff4db;box-shadow:0 -2px #405844}
 .desktop-start{height:35px;min-width:93px;display:flex;align-items:center;gap:7px;padding:3px 10px;font-size:.8rem}
-.desktop-start-mark{width:19px;height:19px;background:conic-gradient(#8b5c3c 0 25%,#d7b678 25% 50%,#577b57 50% 75%,#344d39 75%);border:2px solid #2a412d;transform:rotate(-10deg)}
+.desktop-start-mark{width:19px;height:19px;background:url('/icons/win98/start.png') center/contain no-repeat;image-rendering:pixelated}
 .desktop-task-button{height:35px;min-width:160px;max-width:260px;display:flex;align-items:center;gap:6px;padding:2px 8px;text-align:left;overflow:hidden;font-size:.73rem}
 .desktop-task-button .desktop-icon-art{width:24px;height:24px;filter:none}.desktop-task-button span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .desktop-taskbar-spacer{flex:1}.desktop-clock{min-width:78px;height:32px;display:flex;align-items:center;justify-content:center;padding:0 8px;border:2px solid;border-color:#7b6c52 #f6e9ce #f6e9ce #7b6c52;background:#c8b897;font-size:.72rem;font-weight:800}
