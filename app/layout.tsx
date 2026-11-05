@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./retro.css";
+import SiteExperience from "./components/SiteExperience";
 
 export const metadata: Metadata = {
   title: "Mylestography — Portrait & Editorial Photography",
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><SiteExperience>{children}</SiteExperience></body>
     </html>
   );
 }
