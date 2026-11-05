@@ -12,7 +12,7 @@ export default function SiteFooter() {
           <a href="https://www.instagram.com/mylestography/" target="_blank" rel="noreferrer">Instagram ↗</a>
         </div>
       </div>
-      <div className="poster-footer-bottom"><span>Made with intention.</span><span>© {new Date().getFullYear()} Mylestography</span></div>
+      <div className="poster-footer-bottom"><span>© {new Date().getFullYear()} Mylestography</span></div>
     </footer>
   );
 }
