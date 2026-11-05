@@ -1,11 +1,31 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SiteExperience({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
+  const [volumeOpen, setVolumeOpen] = useState(false);
+  const [volume, setVolume] = useState(60);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0.6;
+    // Audible autoplay is blocked by some browsers. Retry on the first interaction.
+    void audio.play().catch(() => {});
+    const playAfterInteraction = (event: Event) => {
+      if ((event.target as Element)?.closest?.(".music-player")) return;
+      if (audio.paused) void audio.play().catch(() => {});
+    };
+    document.addEventListener("pointerdown", playAfterInteraction, { once: true });
+    document.addEventListener("keydown", playAfterInteraction, { once: true });
+    return () => {
+      document.removeEventListener("pointerdown", playAfterInteraction);
+      document.removeEventListener("keydown", playAfterInteraction);
+    };
+  }, []);
 
   async function toggleAudio() {
     const audio = audioRef.current;
@@ -22,13 +42,21 @@ export default function SiteExperience({ children }: { children: React.ReactNode
     }
   }
 
+  function changeVolume(event: React.ChangeEvent<HTMLInputElement>) {
+    const nextVolume = Number(event.target.value);
+    setVolume(nextVolume);
+    if (audioRef.current) audioRef.current.volume = nextVolume / 100;
+  }
+
   return <>
     {children}
     <div className="music-player" aria-label="Site music player">
-      <div className="music-player-copy"><span className="music-player-label">MUSIC</span><span className="music-player-title">Grapes Upon the Vine</span></div>
-      <button type="button" onClick={toggleAudio} aria-label={playing ? "Pause Grapes Upon the Vine" : "Play Grapes Upon the Vine"} aria-pressed={playing}>{playing ? "Pause" : "Play"}</button>
+      <div className="music-player-copy"><span className="music-player-label">MUSIC</span><span className="music-player-title">99.5 (Instrumental)</span></div>
+      <button type="button" onClick={toggleAudio} aria-label={playing ? "Pause 99.5 (Instrumental)" : "Play 99.5 (Instrumental)"} aria-pressed={playing}>{playing ? "Pause" : "Play"}</button>
+      <button type="button" className="music-volume-button" onClick={() => setVolumeOpen(!volumeOpen)} aria-label="Volume" aria-expanded={volumeOpen} aria-controls="music-volume-panel">VOL</button>
+      {volumeOpen && <div className="music-volume-panel" id="music-volume-panel"><label htmlFor="music-volume">Volume</label><input id="music-volume" type="range" min="0" max="100" value={volume} onChange={changeVolume} /><span>{volume}%</span></div>}
       {audioError && <span className="music-player-error" role="alert">Could not play audio.</span>}
-      <audio ref={audioRef} src="/grapes-upon-the-vine.mp3" preload="none" loop onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAudioError(true)} />
+      <audio ref={audioRef} src="/tv-girl-99-5-instrumental.mp3" preload="auto" autoPlay loop onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAudioError(true)} />
     </div>
   </>;
 }
