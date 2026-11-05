@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import SiteFooter from "../components/SiteFooter";
 import DesktopChrome from "../components/DesktopChrome";
 import { packages, priceRange, depositRange, packageLabel } from "./packages";
 
@@ -67,7 +66,6 @@ export default function BookingContent() {
         </form>}
       </section>
     </main>
-    <SiteFooter />
   </div></DesktopChrome>;
 }
 

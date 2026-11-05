@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
-import SiteFooter from "../components/SiteFooter";
 import DesktopChrome from "../components/DesktopChrome";
 import { aboutImage } from "../portfolio";
 
@@ -18,7 +17,6 @@ export default function About() {
           <Link href="/book" className="poster-button">BOOK A SHOOT <span aria-hidden="true">↗</span></Link>
         </section>
       </main>
-      <SiteFooter />
     </div></DesktopChrome>
   );
 }
