@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./retro.css";
 import "./windows.css";
+import "./desktop.css";
 import SiteExperience from "./components/SiteExperience";
+import DesktopChrome from "./components/DesktopChrome";
 
 export const metadata: Metadata = {
   title: "Mylestography — Portrait & Editorial Photography",
@@ -16,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body><SiteExperience>{children}</SiteExperience></body>
+      <body><SiteExperience><DesktopChrome>{children}</DesktopChrome></SiteExperience></body>
     </html>
   );
 }

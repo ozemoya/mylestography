@@ -1,0 +1,44 @@
+body:has(.desktop-shell){overflow:hidden;background:#3b5741}
+.desktop-shell{position:fixed;inset:0;overflow:hidden;background:#3c5944;background-image:radial-gradient(#d3c09724 1px,transparent 1px),linear-gradient(145deg,#506b50,#344b3a 62%,#6f6b4e);background-size:18px 18px,100% 100%;font-family:Tahoma,Verdana,Arial,sans-serif;color:#273b2a}
+.desktop-shell::before{content:"";position:absolute;inset:0 0 48px;pointer-events:none;opacity:.22;background:radial-gradient(ellipse at 82% 90%,#d0b684 0,transparent 38%),radial-gradient(ellipse at 8% 12%,#a3a970 0,transparent 34%)}
+.desktop-wallpaper-label{position:absolute;right:3.2vw;top:3vh;text-align:right;color:#e5d4ad;font-size:clamp(1.3rem,3vw,3.2rem);font-weight:900;line-height:.9;letter-spacing:-.07em;text-shadow:2px 3px #20382c80;opacity:.7}
+.desktop-wallpaper-label span{font-size:.28em;letter-spacing:.18em;line-height:2}
+.desktop-shortcuts{position:absolute;top:30px;left:25px;z-index:2;display:flex;flex-direction:column;gap:18px}
+.desktop-shortcut{width:105px;min-height:85px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:4px;border:1px solid transparent;background:transparent;color:#fff4d9;text-shadow:1px 2px #20362a;font:700 .72rem/1.2 Tahoma,Verdana,sans-serif;cursor:pointer;text-align:center}
+.desktop-shortcut:hover,.desktop-shortcut:focus-visible{background:#d7c69d36;border:1px dotted #fff2cd;outline:0}
+.desktop-icon-art{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;filter:drop-shadow(2px 3px 0 #1b3326a8);flex:none}
+.desktop-icon-art svg{width:100%;height:100%}
+.desktop-window{position:absolute;z-index:10;top:22px;left:152px;right:28px;bottom:64px;display:flex;flex-direction:column;min-width:0;min-height:0;background:#dbcfb5;border:3px solid;border-color:#fff4df #382f25 #382f25 #fff4df;box-shadow:5px 5px 0 #21382a,10px 10px 22px #152c21a6}
+.desktop-window.is-maximized{inset:3px 3px 51px;box-shadow:none}
+.desktop-window-titlebar{height:38px;min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:3px 4px 3px 9px;background:linear-gradient(90deg,#4c684d,#7e684b);color:#fff2d8;border-bottom:2px solid #293b2c;touch-action:none;cursor:move;user-select:none}
+.desktop-window-title{display:flex;align-items:center;gap:7px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.78rem;font-weight:900}
+.desktop-window-title .desktop-icon-art{width:24px;height:24px;filter:none}
+.desktop-window-controls{display:flex;gap:3px;cursor:default}
+.desktop-window-controls button,.desktop-start,.desktop-task-button{border:2px solid;border-color:#fff6e4 #4c3f31 #4c3f31 #fff6e4;background:#d9ccb0;color:#293f30;box-shadow:1px 1px #263829;font:900 .82rem Tahoma,Verdana,sans-serif;cursor:pointer}
+.desktop-window-controls button{width:29px;height:27px;padding:0;line-height:1}
+.desktop-window-controls button:last-child{font-size:1.2rem}
+.desktop-window-controls button:hover,.desktop-start:hover,.desktop-task-button:hover{background:#eddfc2}
+.desktop-window-controls button:active,.desktop-start.is-active,.desktop-task-button.is-active{border-color:#4c3f31 #fff6e4 #fff6e4 #4c3f31;background:#c2b596;box-shadow:inset 1px 1px #554834}
+.desktop-window-body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-color:#9d8b68 #d9c8a7;scrollbar-width:auto}
+.desktop-window-body .retro-site{min-height:100%;overflow:hidden}
+.desktop-window-body .retro-site .site-header{position:relative;height:54px;min-height:54px;padding-inline:2vw;background:#ded2b8;border-bottom:2px solid #786a50;box-shadow:inset 0 2px #f8f0dd}
+.desktop-window-body .retro-site .site-nav a{font-size:.63rem}
+.desktop-window-body .retro-site .poster-hero{margin-top:1.4rem}
+.desktop-window-status{height:25px;min-height:25px;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 10px;background:#d8ccb4;border-top:2px solid #8a7c62;font-size:.65rem;color:#3c513e}
+.desktop-taskbar{position:absolute;z-index:60;left:0;right:0;bottom:0;height:48px;display:flex;align-items:center;gap:7px;padding:5px 8px;background:#d5c6a6;border-top:3px solid #fff4db;box-shadow:0 -2px #405844}
+.desktop-start{height:35px;min-width:93px;display:flex;align-items:center;gap:7px;padding:3px 10px;font-size:.8rem}
+.desktop-start-mark{width:19px;height:19px;background:conic-gradient(#8b5c3c 0 25%,#d7b678 25% 50%,#577b57 50% 75%,#344d39 75%);border:2px solid #2a412d;transform:rotate(-10deg)}
+.desktop-task-button{height:35px;min-width:160px;max-width:260px;display:flex;align-items:center;gap:6px;padding:2px 8px;text-align:left;overflow:hidden;font-size:.73rem}
+.desktop-task-button .desktop-icon-art{width:24px;height:24px;filter:none}.desktop-task-button span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.desktop-taskbar-spacer{flex:1}.desktop-clock{min-width:78px;height:32px;display:flex;align-items:center;justify-content:center;padding:0 8px;border:2px solid;border-color:#7b6c52 #f6e9ce #f6e9ce #7b6c52;background:#c8b897;font-size:.72rem;font-weight:800}
+.desktop-start-menu{position:absolute;z-index:70;bottom:46px;left:6px;width:min(310px,calc(100vw - 12px));min-height:240px;display:flex;background:#e4d6b8;border:3px solid;border-color:#fff4df #382f25 #382f25 #fff4df;box-shadow:4px 4px 0 #1e3528}
+.desktop-start-side{width:39px;display:flex;align-items:end;justify-content:center;padding:12px 0;background:#4e684b;color:#e9d9b7;writing-mode:vertical-rl;transform:rotate(180deg);font-size:.7rem;font-weight:900;letter-spacing:.12em}
+.desktop-start-items{flex:1;padding:7px}.desktop-start-heading{padding:7px 9px;font-size:.64rem;font-weight:900;letter-spacing:.1em;color:#785437;text-transform:uppercase}
+.desktop-start-items button{width:100%;display:flex;align-items:center;gap:12px;padding:7px 9px;border:0;background:transparent;color:#2d422e;text-align:left;font:700 .8rem Tahoma,Verdana,sans-serif;cursor:pointer}
+.desktop-start-items button:hover,.desktop-start-items button:focus-visible{background:#4e684b;color:#fff1d8;outline:0}
+.desktop-start-items .desktop-icon-art{width:32px;height:32px;filter:none}.desktop-start-divider{height:2px;margin:7px 5px;background:#b9aa89;border-bottom:1px solid #fff1d8}
+.desktop-menu-close{display:flex;width:32px;height:32px;align-items:center;justify-content:center;border:2px solid #7e5b43;background:#c99c6f;font-size:1.2rem}
+body:has(.desktop-shell) .music-player{bottom:59px;left:12px;z-index:55;max-width:280px}
+@media(max-width:700px){.desktop-wallpaper-label{display:none}.desktop-shortcuts{top:6px;left:6px;right:6px;flex-direction:row;justify-content:center;gap:3px}.desktop-shortcut{width:30%;max-width:115px;min-height:75px;font-size:.62rem}.desktop-shortcut .desktop-icon-art{width:35px;height:35px}.desktop-window{top:89px;left:5px;right:5px;bottom:54px;box-shadow:3px 3px 0 #21382a}.desktop-window.is-maximized{inset:2px 2px 51px}.desktop-window-title{font-size:.7rem}.desktop-window-body .retro-site .site-header{height:52px;min-height:52px}.desktop-window-body .retro-site .site-nav{top:52px}.desktop-taskbar{height:47px}.desktop-task-button{min-width:0;flex:1;max-width:180px}.desktop-clock{min-width:62px;font-size:.62rem}body:has(.desktop-shell) .music-player{bottom:57px;left:7px;max-width:235px}.desktop-window-body .retro-site .poster-hero{margin-top:1rem}}
+@media(max-width:420px){.desktop-task-button{font-size:.63rem}.desktop-task-button .desktop-icon-art{display:none}.desktop-start{min-width:75px;padding:3px 7px}.desktop-window-title{font-size:.62rem}}
+@media(prefers-reduced-motion:reduce){.desktop-window,.desktop-window-body{scroll-behavior:auto}}
