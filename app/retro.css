@@ -4,6 +4,7 @@
 .retro-site .site-header{position:relative;height:76px;padding:0 4vw;background:var(--cream);color:var(--forest);border-bottom:1px solid var(--forest)}
 .retro-site .wordmark{font-size:.9rem;letter-spacing:-.045em;font-weight:900}
 .retro-site .wordmark::before{width:28px;height:28px}
+.retro-site .wordmark::before{display:none}
 .retro-site .site-nav{gap:8px;font-size:.65rem;letter-spacing:.09em;font-weight:800}
 .retro-site .site-nav a{border:1px solid var(--rust);padding:.48rem 1.35rem;color:var(--rust);opacity:1;transition:background .2s,color .2s}
 .retro-site .site-nav a:hover,.retro-site .site-nav a.active{background:var(--rust);color:var(--cream)}
@@ -114,3 +115,4 @@
 @media(prefers-reduced-motion:reduce){.poster-flower{animation:none}.poster-work-item img,.poster-button{transition:none}}
 .retro-site .booking-intro .eyebrow{color:var(--cream)}
 @media(max-width:700px){.retro-site .booking-intro .page-title{white-space:normal}.poster-hero h1{font-size:clamp(3.3rem,12.5vw,5.4rem)}}
+.poster-statement-grid{grid-template-columns:1fr}

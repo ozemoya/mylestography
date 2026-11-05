@@ -14,7 +14,6 @@ export default function GalleryPage() {
           <div className="poster-section-meta"><span>THE PORTFOLIO / 01</span><span>MYLESTOGRAPHY · ATLANTA</span></div>
           <h1>In full <em>bloom.</em></h1>
           <div className="poster-page-heading-bottom">
-            <p>Portraits, fashion, celebrations, and the quiet moments in between—photographed with an editorial eye and an honest heart.</p>
             <span>{String(galleryImages.length).padStart(2, "0")} FRAMES / SELECTED WORK</span>
           </div>
         </header>

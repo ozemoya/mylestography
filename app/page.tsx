@@ -26,7 +26,7 @@ export default function Home() {
         </section>
 
         <div className="poster-marquee" aria-label="Photo, Video, Mixed Media">
-          <span>PHOTO</span><i aria-hidden="true">✳</i><span>VIDEO</span><i aria-hidden="true">✳</i><span>MIXED MEDIA</span><i aria-hidden="true">✳</i><span>ATLANTA</span>
+          <span>PHOTO</span><span>VIDEO</span><span>MIXED MEDIA</span><span>ATLANTA</span>
         </div>
 
         <section className="poster-story poster-pad" aria-labelledby="approach-title">
@@ -42,10 +42,7 @@ export default function Home() {
 
         <section className="poster-statement poster-pad" aria-label="Creative disciplines">
           <div className="poster-section-meta"><span>MORE THAN A PHOTOGRAPH</span><span>EST. IN ATLANTA</span></div>
-          <div className="poster-statement-grid">
-            <h2>Photo.<br />Video.<br /><span>Mixed media.</span></h2>
-            <div className="poster-statement-side"><span className="poster-flower" aria-hidden="true">✳</span><p>For the moments you want to remember—and the ideas you haven&apos;t seen done before.</p></div>
-          </div>
+          <div className="poster-statement-grid"><h2>Photo.<br />Video.<br /><span>Mixed media.</span></h2></div>
         </section>
 
         <section className="poster-work poster-pad" aria-labelledby="work-title">

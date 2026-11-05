@@ -4,7 +4,7 @@ export default function SiteFooter() {
   return (
     <footer className="poster-footer">
       <div className="poster-footer-top">
-        <Link href="/" className="poster-footer-brand">Mylestography<span aria-hidden="true">✳</span></Link>
+        <Link href="/" className="poster-footer-brand">Mylestography</Link>
         <p>Photo · Video · Mixed Media<br />Atlanta, Georgia</p>
         <div className="poster-footer-links">
           <Link href="/gallery">Portfolio ↗</Link>
