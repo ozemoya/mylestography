@@ -10,12 +10,12 @@ export default function SiteExperience({ children }: { children: React.ReactNode
   const [audioError, setAudioError] = useState(false);
 
   useEffect(() => {
-    const site = document.querySelector<HTMLElement>(".retro-site");
-    if (!site || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const sites = Array.from(document.querySelectorAll<HTMLElement>(".retro-site"));
+    if (!sites.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const targets = Array.from(site.querySelectorAll<HTMLElement>(
+    const targets = sites.flatMap((site) => Array.from(site.querySelectorAll<HTMLElement>(
       "main > section, main > header, .poster-work-item, .gallery-card, .package-card, .poster-footer"
-    ));
+    )));
     targets.forEach((target) => target.classList.add("reveal-target"));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -26,11 +26,11 @@ export default function SiteExperience({ children }: { children: React.ReactNode
       });
     }, { threshold: 0.08, rootMargin: "0px 0px 60px 0px" });
     targets.forEach((target) => observer.observe(target));
-    const frame = requestAnimationFrame(() => site.classList.add("reveal-ready"));
+    const frame = requestAnimationFrame(() => sites.forEach((site) => site.classList.add("reveal-ready")));
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
-      site.classList.remove("reveal-ready");
+      sites.forEach((site) => site.classList.remove("reveal-ready"));
       targets.forEach((target) => target.classList.remove("reveal-target", "is-visible"));
     };
   }, [pathname]);

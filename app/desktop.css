@@ -50,3 +50,44 @@ body:has(.desktop-shell) .music-player{bottom:59px;left:12px;z-index:55;max-widt
 .desktop-start::after,.desktop-task-button::after{inset:-3px;border-color:#4c3a2ac9}
 @keyframes desktop-outline-boil{0%{transform:translate(1px,-1px) rotate(-.12deg);clip-path:polygon(0 1%,99% 0,100% 99%,1% 100%)}50%{transform:translate(-2px,1px) rotate(.18deg);clip-path:polygon(1% 0,100% 1%,99% 100%,0 99%)}100%{transform:translate(1px,2px) rotate(-.1deg);clip-path:polygon(0 0,100% 0,100% 100%,0 99%)}}
 @media(prefers-reduced-motion:reduce){.desktop-window::after,.desktop-shortcut::after,.desktop-start::after,.desktop-task-button::after,.music-player::after{animation:none}}
+/* The browser owns vertical scrolling, as it would for a long document in a classic window. */
+body:has(.desktop-shell){overflow-y:auto;overflow-x:hidden}
+.desktop-shell{position:relative;inset:auto;min-height:100vh;overflow:visible}
+.desktop-wallpaper-label,.desktop-shortcuts{position:absolute}
+.desktop-window{position:relative;top:auto;left:auto;right:auto;bottom:auto;margin:22px 28px 72px 152px;min-height:calc(100vh - 94px);height:auto}
+.desktop-window.is-maximized{inset:auto;margin:3px 3px 51px;min-height:calc(100vh - 54px)}
+.desktop-window-body{flex:1;overflow:visible;min-height:0}
+.desktop-taskbar,.desktop-start-menu{position:fixed}
+@media(max-width:700px){.desktop-window{top:auto;left:auto;right:auto;bottom:auto;margin:89px 5px 58px;min-height:calc(100vh - 147px)}.desktop-window.is-maximized{inset:auto;margin:2px 2px 51px;min-height:calc(100vh - 53px)}}
+.desktop-browser-toolbar{height:43px;min-height:43px;display:flex;align-items:center;gap:5px;padding:4px 8px;background:#d3ccb8;border-bottom:2px solid #817a68;box-shadow:inset 0 1px #fff7e8}
+.desktop-browser-toolbar>button{min-height:30px;display:inline-flex;align-items:center;gap:4px;padding:2px 8px;background:#dcd4c1;border:2px solid;border-color:#fff8e9 #746c59 #746c59 #fff8e9;color:#293c2d;font:700 .68rem Tahoma,Verdana,sans-serif;cursor:pointer}
+.desktop-browser-toolbar>button:first-letter{font-size:1.15rem}.desktop-browser-toolbar>button:hover{background:#eee4cb}.desktop-browser-toolbar>button:active{border-color:#746c59 #fff8e9 #fff8e9 #746c59}
+.desktop-browser-address{min-width:0;flex:1;display:flex;align-items:center;gap:8px;margin-left:5px;font:700 .65rem Tahoma,Verdana,sans-serif;color:#4c523e}
+.desktop-browser-address output{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:#f8f3e6;border:2px solid;border-color:#817965 #fff8e9 #fff8e9 #817965;padding:6px 9px;font-weight:400;color:#263b2b}
+.desktop-window-body .retro-site .site-header{height:39px;min-height:39px;padding-inline:14px;background:#d6cbb4;border-bottom:1px solid #8b806b;box-shadow:none}
+.desktop-window-body .retro-site .wordmark{font-size:.7rem;font-weight:800;letter-spacing:.02em}
+.desktop-window-body .retro-site .site-nav{gap:0}
+.desktop-window-body .retro-site .site-nav a{background:transparent;border:0;box-shadow:none;color:#2e4030;padding:.4rem .8rem;font-size:.7rem;font-weight:500;text-transform:none}
+.desktop-window-body .retro-site .site-nav a:hover,.desktop-window-body .retro-site .site-nav a.active{background:#516d51;color:#fff6df}
+.desktop-window-body .retro-site .menu-toggle{padding:.3rem .6rem;font-size:.65rem}
+@media(max-width:700px){.desktop-browser-toolbar{gap:3px;padding:4px}.desktop-browser-toolbar>button{padding:2px 6px;font-size:.6rem}.desktop-browser-toolbar>button span{display:none}.desktop-browser-address{gap:3px;margin-left:2px}.desktop-browser-address>span{display:none}.desktop-window-body .retro-site .site-nav{top:39px;background:#d6cbb4}}
+/* One application window on top; the rest of Home is an ordinary scrolling page. */
+.desktop-window-body .retro-site :is(.poster-hero,.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing,.poster-page-heading,.poster-gallery-body,.poster-gallery-end,.poster-about,.booking-intro),.desktop-window-body .retro-site .booking-page>section{margin:0;border:0;box-shadow:none}
+.desktop-window-body .retro-site :is(.poster-hero,.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing,.poster-page-heading,.poster-gallery-body,.poster-gallery-end,.poster-about,.booking-intro)::before,.desktop-window-body .retro-site .booking-page>section::before,.desktop-window-body .retro-site :is(.poster-hero,.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing,.poster-page-heading,.poster-gallery-body,.poster-gallery-end,.poster-about,.booking-intro)::after,.desktop-window-body .retro-site .booking-page>section::after{display:none}
+.desktop-window-body .retro-site .poster-hero{padding:0;min-height:calc(100vh - 160px)}
+.desktop-window-body .retro-site .poster-hero-photo{min-height:calc(100vh - 160px)}
+.desktop-window-body .retro-site .poster-page-heading{padding:4rem 6vw}
+.desktop-window-body .retro-site .poster-gallery-body{padding:3rem 6vw 5rem}
+.desktop-window-body .retro-site .poster-gallery-end{padding:5rem 6vw}
+.desktop-window-body .retro-site .booking-intro{padding:6rem 55% 6rem 6vw}
+.desktop-window-body .retro-site .booking-page>section{padding:5rem 6vw}
+.desktop-window-body .retro-site .poster-about{padding:0}
+.desktop-window-body .retro-site .poster-footer,.retro-flow .poster-footer{margin:0;border:0;box-shadow:none;padding-top:0}
+.desktop-window-body .retro-site .poster-footer::before,.retro-flow .poster-footer::before{display:none}
+.retro-flow{background:#e6d9bc;background-image:radial-gradient(#8c80632a 1px,transparent 1px);background-size:17px 17px}
+.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing){margin:0;border:0;box-shadow:none}
+.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing)::before,.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services,.poster-closing)::after{display:none}
+.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services){padding:6rem 6vw}
+.retro-flow .poster-closing{padding:0}
+.retro-flow .poster-marquee{margin:0;border:0;box-shadow:none}
+@media(max-width:700px){.desktop-window-body .retro-site .poster-hero{min-height:0}.desktop-window-body .retro-site .poster-hero-photo{min-height:58svh}.desktop-window-body .retro-site .booking-intro{padding:0 0 4rem}.desktop-window-body .retro-site .booking-page>section{padding:4rem 5vw}.desktop-window-body .retro-site .poster-about{padding:0}.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services){padding:4rem 5vw}}

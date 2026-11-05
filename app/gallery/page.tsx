@@ -2,12 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import SiteFooter from "../components/SiteFooter";
+import DesktopChrome from "../components/DesktopChrome";
 import { photoAlt } from "../new-photos";
 import { galleryImages } from "../portfolio";
 
 export default function GalleryPage() {
   return (
-    <div className="retro-site">
+    <DesktopChrome><div className="retro-site">
       <Navbar />
       <main>
         <header className="poster-page-heading poster-gallery-heading">
@@ -31,6 +32,6 @@ export default function GalleryPage() {
         <section className="poster-gallery-end"><span>LIKE WHAT YOU SEE?</span><h2>Let&apos;s make<br /><em>something yours.</em></h2><Link href="/book" className="poster-button">Book a session <span aria-hidden="true">↗</span></Link></section>
       </main>
       <SiteFooter />
-    </div>
+    </div></DesktopChrome>
   );
 }

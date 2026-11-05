@@ -3,14 +3,16 @@ import Link from "next/link";
 import Navbar from "./components/Navbar";
 import MixedMedia from "./components/MixedMedia";
 import SiteFooter from "./components/SiteFooter";
+import DesktopChrome from "./components/DesktopChrome";
 import { photoAlt } from "./new-photos";
 import { heroImage, closingImage, featuredImages } from "./portfolio";
 
 export default function Home() {
   return (
-    <div className="retro-site">
+    <>
+      <DesktopChrome><div className="retro-site desktop-home-app">
       <Navbar />
-      <main>
+      <div className="desktop-home-main">
         <section className="poster-hero" aria-labelledby="home-title">
           <div className="poster-hero-photo">
             <Image src={heroImage} alt={photoAlt(heroImage, "Editorial portrait photographed by Mylestography")} fill priority sizes="(max-width: 760px) 100vw, 55vw" />
@@ -24,6 +26,11 @@ export default function Home() {
             <p className="poster-hero-bottom">Photography with personality, presence, and a point of view.</p>
           </div>
         </section>
+      </div>
+      </div></DesktopChrome>
+
+      <div className="retro-site retro-flow">
+      <main>
 
         <div className="poster-marquee" aria-label="Photo, Video, Mixed Media">
           <span>PHOTO</span><span>VIDEO</span><span>MIXED MEDIA</span><span>ATLANTA</span>
@@ -81,5 +88,6 @@ export default function Home() {
       </main>
       <SiteFooter />
     </div>
+    </>
   );
 }

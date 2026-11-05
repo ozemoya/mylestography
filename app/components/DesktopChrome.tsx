@@ -72,12 +72,18 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
 
     {windowState === "open" && <div className={`desktop-window${maximized ? " is-maximized" : ""}`} style={maximized ? undefined : { transform: `translate(${offset.x}px, ${offset.y}px)` }}>
       <div className="desktop-window-titlebar" onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={() => { drag.current = null; }} onPointerCancel={() => { drag.current = null; }}>
-        <span className="desktop-window-title"><AppIcon icon={currentApp.icon} /> {currentApp.name} — Mylestography</span>
+        <span className="desktop-window-title"><AppIcon icon={currentApp.icon} /> {currentApp.name} — Mylestography Browser</span>
         <div className="desktop-window-controls">
           <button type="button" aria-label="Minimize window" title="Minimize" onClick={() => setWindowState("minimized")}>_</button>
           <button type="button" aria-label={maximized ? "Restore window" : "Maximize window"} title={maximized ? "Restore" : "Maximize"} onClick={() => { setMaximized(!maximized); setOffset({ x: 0, y: 0 }); }}>{maximized ? "▣" : "□"}</button>
           <button type="button" aria-label="Close window" title="Close" onClick={() => setWindowState("closed")}>×</button>
         </div>
+      </div>
+      <div className="desktop-browser-toolbar" aria-label="Browser controls">
+        <button type="button" onClick={() => router.back()} aria-label="Go back">‹ <span>Back</span></button>
+        <button type="button" onClick={() => router.forward()} aria-label="Go forward">› <span>Forward</span></button>
+        <button type="button" onClick={() => openApp("/")} aria-label="Open homepage">⌂ <span>Home</span></button>
+        <div className="desktop-browser-address"><span>Address</span><output>mylestography.vercel.app{pathname}</output></div>
       </div>
       <div className="desktop-window-body">{children}</div>
       <div className="desktop-window-status"><span>{currentApp.name}</span><span>Atlanta, GA</span></div>

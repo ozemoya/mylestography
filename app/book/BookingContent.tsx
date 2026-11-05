@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import SiteFooter from "../components/SiteFooter";
+import DesktopChrome from "../components/DesktopChrome";
 import { packages, priceRange, depositRange, packageLabel } from "./packages";
 
 export default function BookingContent() {
@@ -29,7 +30,7 @@ export default function BookingContent() {
     } catch { setError("Your inquiry could not be sent. Please try again or email myleskmiller@gmail.com."); }
     finally { setSending(false); }
   }
-  return <div className="retro-site">
+  return <DesktopChrome><div className="retro-site">
     <div className="inner-header"><Navbar /></div>
     <main className="page-main booking-page">
       <header className="booking-intro">
@@ -68,7 +69,7 @@ export default function BookingContent() {
       </section>
     </main>
     <SiteFooter />
-  </div>;
+  </div></DesktopChrome>;
 }
 
 
