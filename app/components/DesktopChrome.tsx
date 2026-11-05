@@ -89,7 +89,7 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
         <button type="button" onClick={() => router.back()} aria-label="Go back">‹ <span>Back</span></button>
         <button type="button" onClick={() => router.forward()} aria-label="Go forward">› <span>Forward</span></button>
         <button type="button" onClick={() => openApp("/")} aria-label="Open homepage">⌂ <span>Home</span></button>
-        <div className="desktop-browser-address"><span>Address</span><output>mylestography.vercel.app{pathname}</output></div>
+        <div className="desktop-browser-address"><span>Address</span><output>mylestography.studio{pathname}</output></div>
       </div>
       <div className="desktop-window-body">{children}</div>
       <div className="desktop-window-status"><span>{currentApp.name}</span><span>Atlanta, GA</span></div>
