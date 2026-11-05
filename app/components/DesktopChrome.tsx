@@ -3,20 +3,22 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-type AppPath = "/" | "/gallery" | "/book";
+type AppPath = "/" | "/gallery" | "/book" | "/media";
 type WindowState = "open" | "minimized" | "closed";
 
-const apps: { path: AppPath; name: string; icon: "home" | "photos" | "book" }[] = [
+const apps: { path: AppPath; name: string; icon: "home" | "photos" | "book" | "media" }[] = [
   { path: "/", name: "Mylestography", icon: "home" },
   { path: "/gallery", name: "Photo Album", icon: "photos" },
   { path: "/book", name: "Book a Session", icon: "book" },
+  { path: "/media", name: "Mixed Media", icon: "media" },
 ];
 
-function AppIcon({ icon }: { icon: "home" | "photos" | "book" }) {
+function AppIcon({ icon }: { icon: "home" | "photos" | "book" | "media" }) {
   return <span className={`desktop-icon-art desktop-icon-${icon}`} aria-hidden="true">
     {icon === "home" && <svg viewBox="0 0 48 48" fill="none"><rect x="7" y="7" width="34" height="29" fill="#e7d5ad" stroke="#263d2b" strokeWidth="3"/><rect x="11" y="11" width="26" height="21" fill="#84a278" stroke="#263d2b" strokeWidth="2"/><path d="M13 31 21 22l6 5 5-8 4 12" fill="#bd9560" stroke="#263d2b" strokeWidth="2"/><path d="M14 42h20" stroke="#263d2b" strokeWidth="4"/></svg>}
     {icon === "photos" && <svg viewBox="0 0 48 48" fill="none"><path d="M5 15h38v27H5z" fill="#dec89a" stroke="#263d2b" strokeWidth="3"/><path d="M5 15V8h14l4 5h20v5" fill="#b88a55" stroke="#263d2b" strokeWidth="3"/><rect x="13" y="23" width="22" height="13" fill="#7c9a70" stroke="#263d2b" strokeWidth="2"/><circle cx="29" cy="27" r="2" fill="#f3dfaa"/><path d="m15 34 6-6 5 5" stroke="#f3dfaa" strokeWidth="2"/></svg>}
     {icon === "book" && <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="34" fill="#ead9b3" stroke="#263d2b" strokeWidth="3"/><path d="M8 17h32" stroke="#263d2b" strokeWidth="3"/><path d="M15 5v8m18-8v8" stroke="#263d2b" strokeWidth="4"/><path d="M15 25h7m4 0h7m-18 7h7m4 0h7" stroke="#8f5d3e" strokeWidth="3"/></svg>}
+    {icon === "media" && <svg viewBox="0 0 48 48" fill="none"><rect x="5" y="9" width="38" height="29" fill="#d7c59e" stroke="#263d2b" strokeWidth="3"/><rect x="10" y="14" width="28" height="19" fill="#7b9671" stroke="#263d2b" strokeWidth="2"/><path d="m21 18 10 5-10 6z" fill="#f5e5bc" stroke="#263d2b" strokeWidth="2"/><path d="M16 43h16" stroke="#263d2b" strokeWidth="3"/></svg>}
   </span>;
 }
 
@@ -65,7 +67,9 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
   }
 
   return <div className="desktop-shell">
-    <div className="desktop-wallpaper-label" aria-hidden="true">MYLESTOGRAPHY<br /><span>PHOTO · VIDEO · MIXED MEDIA</span></div>
+    <video className="desktop-wallpaper-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+      <source src="/wallpaper-logo.webm" type="video/webm" />
+    </video>
     <nav className="desktop-shortcuts" aria-label="Desktop shortcuts">
       {apps.map((app) => <button type="button" key={app.path} className="desktop-shortcut" onClick={() => openApp(app.path)}><AppIcon icon={app.icon} /><span>{app.name}</span></button>)}
     </nav>

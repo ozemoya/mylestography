@@ -91,3 +91,22 @@ body:has(.desktop-shell){overflow-y:auto;overflow-x:hidden}
 .retro-flow .poster-closing{padding:0}
 .retro-flow .poster-marquee{margin:0;border:0;box-shadow:none}
 @media(max-width:700px){.desktop-window-body .retro-site .poster-hero{min-height:0}.desktop-window-body .retro-site .poster-hero-photo{min-height:58svh}.desktop-window-body .retro-site .booking-intro{padding:0 0 4rem}.desktop-window-body .retro-site .booking-page>section{padding:4rem 5vw}.desktop-window-body .retro-site .poster-about{padding:0}.retro-flow :is(.poster-story,.poster-statement,.poster-work,.mixed-media,.poster-services){padding:4rem 5vw}}
+/* The supplied animation is keyed to real alpha so the original green wallpaper stays visible. */
+.desktop-wallpaper-video{position:absolute;z-index:1;inset:0 0 48px;width:100%;height:calc(100% - 48px);object-fit:contain;opacity:.7;pointer-events:none}
+body:has(.desktop-shell){overflow:hidden}
+.desktop-shell{position:fixed;inset:0;min-height:0;overflow:hidden}
+.desktop-window{position:absolute;top:22px;left:152px;right:28px;bottom:64px;margin:0;min-height:0;height:auto}
+.desktop-window.is-maximized{inset:3px 3px 51px;margin:0;min-height:0}
+.desktop-window-body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+.desktop-window-body:has(.desktop-home-app){overflow:hidden}
+.desktop-home-app{height:100%;min-height:0!important}
+.desktop-home-main{height:calc(100% - 39px)}
+.desktop-window-body .desktop-home-app .poster-hero{height:100%;min-height:0}
+.desktop-window-body .desktop-home-app .poster-hero-photo{height:100%;min-height:0}
+.desktop-home-app .poster-hero-content{padding:clamp(1.5rem,3vw,3rem)}
+.desktop-home-app .poster-hero h1{font-size:clamp(3.5rem,6vw,7rem)}
+.desktop-home-app .poster-hero-bottom{margin-top:2rem}
+@media(max-width:700px){.desktop-window{top:89px;left:5px;right:5px;bottom:54px;margin:0;min-height:0}.desktop-window.is-maximized{inset:2px 2px 51px;margin:0}.desktop-home-main{height:calc(100% - 39px)}.desktop-window-body .desktop-home-app .poster-hero{height:100%;display:block;position:relative}.desktop-window-body .desktop-home-app .poster-hero-photo{position:absolute;inset:0;height:100%;min-height:0}.desktop-home-app .poster-hero-photo img{object-position:center 27%}.desktop-home-app .poster-hero-content{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;background:#e8dcc4ed}.desktop-home-app .poster-label{font-size:.52rem;margin:0 0 .5rem}.desktop-home-app .poster-hero h1{font-size:clamp(2.3rem,9vw,3.6rem);line-height:.87;margin:0 0 .5rem}.desktop-home-app .poster-hero-intro{font-size:.9rem;margin:0 0 .7rem}.desktop-home-app .poster-hero-bottom{display:none}.desktop-home-app .poster-button{min-width:0;padding:.65rem .8rem;font-size:.57rem}}
+@media(max-height:750px) and (min-width:701px){.desktop-home-app .poster-hero h1{font-size:clamp(3rem,5.2vw,5.5rem)}.desktop-home-app .poster-label{margin-bottom:1rem}.desktop-home-app .poster-hero-intro{margin-bottom:1rem}.desktop-home-app .poster-hero-bottom{margin-top:1rem}}
+@media(prefers-reduced-motion:reduce){.desktop-wallpaper-video{display:none}}
+@media(max-width:700px){.desktop-shortcuts{gap:1px}.desktop-shortcut{width:24%;min-height:75px;font-size:.57rem}.desktop-shortcut .desktop-icon-art{width:32px;height:32px}}
