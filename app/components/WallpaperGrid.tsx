@@ -33,15 +33,10 @@ export default function WallpaperGrid() {
 
     function warp(x: number, y: number): [number, number] {
       const centerX = width * 0.09;
-      const centerY = height * 0.49;
-      const radius = Math.min(width * 0.36, height * 0.62);
-      const dx = x - centerX;
-      const dy = y - centerY;
-      const distance = Math.hypot(dx, dy);
-      if (distance >= radius || distance === 0) return [x, y];
-      const falloff = Math.pow(1 - (distance / radius) ** 2, 2);
-      const push = radius * 0.18 * falloff;
-      return [x + (dx / distance) * push, y + (dy / distance) * push];
+      const spread = width * 0.14;
+      const arc = Math.exp(-Math.pow((x - centerX) / spread, 2));
+      const verticalFade = Math.max(0, Math.sin(Math.PI * y / height));
+      return [x, y - 24 * arc * verticalFade];
     }
 
     function draw(offset: number) {
