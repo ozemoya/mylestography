@@ -1,7 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
 import Navbar from "../components/Navbar";
-import SiteFooter from "../components/SiteFooter";
 import DesktopChrome from "../components/DesktopChrome";
 import { photoAlt } from "../new-photos";
 import { galleryImages } from "../portfolio";
@@ -29,9 +27,7 @@ export default function GalleryPage() {
             ))}
           </div>
         </section>
-        <section className="poster-gallery-end"><h2>Need photos?</h2><Link href="/book" className="poster-button">BOOK A SHOOT <span aria-hidden="true">↗</span></Link></section>
       </main>
-      <SiteFooter />
     </div></DesktopChrome>
   );
 }
