@@ -2,9 +2,7 @@ export default function MixedMedia() {
   return (
     <section id="mixed-media" className="mixed-media section-wrap" aria-labelledby="mixed-media-title">
       <div className="mixed-media-copy">
-        <p className="eyebrow">Mixed media</p>
         <h2 id="mixed-media-title">Mixed media.</h2>
-        <p>Video and collage work.</p>
         <a className="text-link" href="https://www.instagram.com/p/Da88v3kRvfs/" target="_blank" rel="noopener noreferrer">
           WATCH VIDEO <span aria-hidden="true">↗</span>
         </a>
