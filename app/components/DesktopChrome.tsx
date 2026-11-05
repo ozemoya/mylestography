@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import WallpaperGrid from "./WallpaperGrid";
 
 type AppPath = "/" | "/gallery" | "/book" | "/media";
 type WindowState = "open" | "minimized" | "closed";
@@ -70,16 +71,7 @@ export default function DesktopChrome({ children }: { children: React.ReactNode 
     <video className="desktop-wallpaper-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
       <source src="/wallpaper-logo.webm" type="video/webm" />
     </video>
-    <svg className="desktop-wallpaper-grid" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
-      {Array.from({ length: 33 }, (_, index) => {
-        const x = index * 50;
-        return <path key={`v-${index}`} d={`M ${x} 0 C ${x - 28} 225, ${x + 34} 420, ${x - 20} 650 S ${x + 12} 840, ${x} 900`} />;
-      })}
-      {Array.from({ length: 19 }, (_, index) => {
-        const y = index * 50;
-        return <path key={`h-${index}`} d={`M 0 ${y} ${Array.from({ length: 32 }, () => "q 12 -10 25 0 q 13 10 25 0").join(" ")}`} />;
-      })}
-    </svg>
+    <WallpaperGrid />
     <nav className="desktop-shortcuts" aria-label="Desktop shortcuts">
       {apps.map((app) => <button type="button" key={app.path} className="desktop-shortcut" onClick={() => openApp(app.path)}><AppIcon icon={app.icon} /><span>{app.name}</span></button>)}
     </nav>
