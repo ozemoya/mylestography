@@ -51,12 +51,12 @@ export default function SiteExperience({ children }: { children: React.ReactNode
   return <>
     {children}
     <div className="music-player" aria-label="Site music player">
-      <div className="music-player-copy"><span className="music-player-label">MUSIC</span><span className="music-player-title">99.5 (Instrumental)</span></div>
-      <button type="button" onClick={toggleAudio} aria-label={playing ? "Pause 99.5 (Instrumental)" : "Play 99.5 (Instrumental)"} aria-pressed={playing}>{playing ? "Pause" : "Play"}</button>
+      <div className="music-player-copy"><span className="music-player-label">MUSIC</span><span className="music-player-title">Feels Like We Only Go Backwards</span></div>
+      <button type="button" onClick={toggleAudio} aria-label={playing ? "Pause Feels Like We Only Go Backwards" : "Play Feels Like We Only Go Backwards"} aria-pressed={playing}>{playing ? "Pause" : "Play"}</button>
       <button type="button" className="music-volume-button" onClick={() => setVolumeOpen(!volumeOpen)} aria-label="Volume" aria-expanded={volumeOpen} aria-controls="music-volume-panel">VOL</button>
       {volumeOpen && <div className="music-volume-panel" id="music-volume-panel"><label htmlFor="music-volume">Volume</label><input id="music-volume" type="range" min="0" max="100" value={volume} onChange={changeVolume} /><span>{volume}%</span></div>}
       {audioError && <span className="music-player-error" role="alert">Could not play audio.</span>}
-      <audio ref={audioRef} src="/tv-girl-99-5-instrumental.mp3" preload="auto" autoPlay loop onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAudioError(true)} />
+      <audio ref={audioRef} src="/feels-like-we-only-go-backwards-instrumental.mp3" preload="auto" autoPlay loop onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setAudioError(true)} />
     </div>
   </>;
 }
