@@ -12,7 +12,7 @@ const apps: { path: AppPath; name: string; icon: "home" | "photos" | "book" | "m
   { path: "/", name: "Mylestography", icon: "home" },
   { path: "/gallery", name: "Photo Album", icon: "photos" },
   { path: "/book", name: "Book a Session", icon: "book" },
-  { path: "/media", name: "Mixed Media", icon: "media" },
+  { path: "/media", name: "Video & Mixed Media", icon: "media" },
 ];
 
 function AppIcon({ icon }: { icon: "home" | "photos" | "book" | "media" }) {
