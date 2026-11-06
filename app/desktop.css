@@ -95,16 +95,18 @@ body:has(.desktop-shell){overflow-y:auto;overflow-x:hidden}
 .desktop-wallpaper-video{position:absolute;z-index:1;inset:0 0 48px;width:100%;height:calc(100% - 48px);object-fit:contain;opacity:.7;mix-blend-mode:screen;pointer-events:none}
 @media (prefers-reduced-motion: no-preference) {
   .desktop-wallpaper-video {
-    animation: wallpaper-logo-glow 9s ease-in-out infinite;
+    animation: wallpaper-logo-glow 3s ease-out infinite;
   }
 }
 
 @keyframes wallpaper-logo-glow {
-  0%, 40%, 82%, 100% {
-    filter: brightness(1) drop-shadow(0 0 0 rgb(255 218 149 / 0));
+  0%, 68%, 100% {
+    opacity: .7;
+    filter: brightness(1) drop-shadow(0 0 0 rgb(255 239 120 / 0)) drop-shadow(0 0 0 rgb(255 191 0 / 0));
   }
-  60% {
-    filter: brightness(1.28) drop-shadow(0 0 14px rgb(255 218 149 / .8));
+  73%, 80% {
+    opacity: 1;
+    filter: brightness(1.9) drop-shadow(0 0 7px #ffef78) drop-shadow(0 0 24px #ffbf00);
   }
 }
 body:has(.desktop-shell){overflow:hidden}
