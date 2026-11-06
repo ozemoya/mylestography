@@ -52,7 +52,7 @@
 .retro-site .mixed-media-copy h2 em{color:var(--rust)}
 .retro-site .mixed-media-copy>p:not(.eyebrow){font:1.4rem/1.4 Georgia,serif;color:var(--forest)}
 .retro-site .mixed-media .text-link{color:var(--forest)}
-.retro-site .mixed-media-player iframe{border:2px solid var(--forest);border-radius:0}
+.retro-site .mixed-media-player video{border:2px solid var(--forest)}
 .poster-services{background:var(--forest);color:var(--cream)}
 .poster-services h2{font-size:clamp(5rem,10vw,11rem);line-height:.85;margin-bottom:5rem}
 .poster-services h2 em{color:var(--yellow)}
