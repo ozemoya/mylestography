@@ -33,8 +33,7 @@ const gallerySelection = [
   "/images/new-work/golden-costume-portrait.webp",
   folderPhoto("DSCF1391"),
   folderPhoto("DSCF0535"),
-  folderPhoto("DSCF1422"),
-  folderPhoto("DSCF3229"),
+  ...forefrontPhotos,
 ];
 export const galleryImages = [...new Set(gallerySelection)].filter(keep);
 export const onSiteImages = [...new Set([heroImage, aboutImage, closingImage, ...featuredImages, ...galleryImages])];
