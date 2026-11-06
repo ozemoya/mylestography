@@ -58,7 +58,7 @@ footer { background: #38291d; color: #fff8e9; }
 .mixed-media-copy h2 em { color: #866029; }
 .mixed-media-copy > p:not(.eyebrow) { max-width: 360px; color: #685341; line-height: 1.8; margin-bottom: 28px; }
 .mixed-media-player { width: 100%; max-width: 480px; justify-self: center; min-width: 0; }
-.mixed-media-player video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #171a14; }
+.mixed-media-player img { display: block; width: 100%; height: auto; background: #171a14; }
 @media(max-width:700px) {
   .mixed-media { grid-template-columns: 1fr; }
 }

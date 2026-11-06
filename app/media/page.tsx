@@ -1,3 +1,4 @@
+import Image from "next/image";
 import DesktopChrome from "../components/DesktopChrome";
 import MixedMedia from "../components/MixedMedia";
 import Navbar from "../components/Navbar";
@@ -12,10 +13,10 @@ export default function MediaPage() {
           <h2 id="media-video-title">Video.</h2>
         </div>
         <div className="mixed-media-player">
-          <video controls playsInline preload="metadata" aria-label="Mylestography video">
-            <source src="/mixed-media-video.mp4" type="video/mp4" />
-            <a href="/mixed-media-video.mp4">Open video</a>
-          </video>
+          <picture>
+            <source media="(prefers-reduced-motion: reduce)" srcSet="/mixed-media-video-still.webp" />
+            <Image src="/mixed-media-video.gif" alt="Mylestography video excerpt" width={400} height={225} unoptimized />
+          </picture>
         </div>
       </section>
     </main>

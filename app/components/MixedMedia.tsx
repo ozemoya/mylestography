@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function MixedMedia() {
   return (
     <section id="mixed-media" className="mixed-media section-wrap" aria-labelledby="mixed-media-title">
@@ -5,10 +7,10 @@ export default function MixedMedia() {
         <h2 id="mixed-media-title">Mixed media.</h2>
       </div>
       <div className="mixed-media-player">
-        <video controls playsInline preload="metadata" aria-label="Mylestography mixed media animation">
-          <source src="/mixed-media-animation.mp4" type="video/mp4" />
-          <a href="/mixed-media-animation.mp4">Open animation</a>
-        </video>
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcSet="/mixed-media-animation-still.webp" />
+          <Image src="/mixed-media-animation.gif" alt="Mylestography mixed media animation" width={400} height={225} unoptimized />
+        </picture>
       </div>
     </section>
   );

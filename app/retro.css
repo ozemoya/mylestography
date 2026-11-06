@@ -52,7 +52,7 @@
 .retro-site .mixed-media-copy h2 em{color:var(--rust)}
 .retro-site .mixed-media-copy>p:not(.eyebrow){font:1.4rem/1.4 Georgia,serif;color:var(--forest)}
 .retro-site .mixed-media .text-link{color:var(--forest)}
-.retro-site .mixed-media-player video{border:2px solid var(--forest)}
+.retro-site .mixed-media-player img{border:2px solid var(--forest)}
 .retro-site .media-video-section {
   border-top: 2px solid var(--forest);
   background: var(--cream);
