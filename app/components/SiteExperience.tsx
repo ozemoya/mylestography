@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 export default function SiteExperience({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const videoPlaying = useRef(false);
+  const userPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [audioError, setAudioError] = useState(false);
   const [volumeOpen, setVolumeOpen] = useState(false);
@@ -17,11 +19,41 @@ export default function SiteExperience({ children }: { children: React.ReactNode
     void audio.play().catch(() => {});
     const playAfterInteraction = (event: Event) => {
       if ((event.target as Element)?.closest?.(".music-player")) return;
-      if (audio.paused) void audio.play().catch(() => {});
+      if (audio.paused && !videoPlaying.current && !userPaused.current) {
+        void audio.play().catch(() => {});
+      }
     };
+    let resumeMusic = false;
+    const syncVideoPlayback = () => {
+      const active = Array.from(document.querySelectorAll<HTMLVideoElement>(".mixed-media-player video"))
+        .some((video) => !video.paused && !video.ended && !video.error);
+      if (active && !videoPlaying.current) {
+        resumeMusic = !audio.paused;
+        videoPlaying.current = true;
+        audio.pause();
+      } else if (!active && videoPlaying.current) {
+        videoPlaying.current = false;
+        if (resumeMusic && !userPaused.current) void audio.play().catch(() => {});
+        resumeMusic = false;
+      }
+    };
+    const onVideoPlayback = (event: Event) => {
+      if (event.target instanceof HTMLVideoElement && event.target.matches(".mixed-media-player video")) {
+        syncVideoPlayback();
+      }
+    };
+    const playbackEvents = ["play", "pause", "ended", "error", "emptied"];
+    for (const event of playbackEvents) document.addEventListener(event, onVideoPlayback, true);
+    // Removing a playing video from the desktop can happen without a pause event.
+    const observer = new MutationObserver(() => {
+      if (videoPlaying.current) syncVideoPlayback();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
     document.addEventListener("pointerdown", playAfterInteraction, { once: true });
     document.addEventListener("keydown", playAfterInteraction, { once: true });
     return () => {
+      observer.disconnect();
+      for (const event of playbackEvents) document.removeEventListener(event, onVideoPlayback, true);
       document.removeEventListener("pointerdown", playAfterInteraction);
       document.removeEventListener("keydown", playAfterInteraction);
     };
@@ -29,12 +61,14 @@ export default function SiteExperience({ children }: { children: React.ReactNode
 
   async function toggleAudio() {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || videoPlaying.current) return;
     if (!audio.paused) {
+      userPaused.current = true;
       audio.pause();
       return;
     }
     try {
+      userPaused.current = false;
       setAudioError(false);
       await audio.play();
     } catch {
