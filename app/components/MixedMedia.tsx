@@ -3,12 +3,19 @@ export default function MixedMedia() {
     <section id="mixed-media" className="mixed-media section-wrap" aria-labelledby="mixed-media-title">
       <div className="mixed-media-copy">
         <h2 id="mixed-media-title">Mixed media.</h2>
+        <a className="text-link" href="https://www.instagram.com/p/Da88v3kRvfs/" target="_blank" rel="noopener noreferrer">
+          WATCH VIDEO <span aria-hidden="true">↗</span>
+        </a>
       </div>
       <div className="mixed-media-player">
-        <video controls playsInline preload="metadata" aria-label="Mylestography mixed media video">
-          <source src="/mixed-media-video.mp4" type="video/mp4" />
-          <a href="/mixed-media-video.mp4">Open video</a>
-        </video>
+        <iframe
+          src="https://www.instagram.com/p/Da88v3kRvfs/embed/"
+          title="Mylestography mixed-media video on Instagram"
+          loading="lazy"
+          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+          allowFullScreen
+        />
+        <p>Video not loading? <a href="https://www.instagram.com/p/Da88v3kRvfs/" target="_blank" rel="noopener noreferrer">Open it on Instagram ↗</a></p>
       </div>
     </section>
   );
