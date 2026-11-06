@@ -40,10 +40,10 @@ const gallerySelection = [
   folderPhoto("DSCF2416"),
   folderPhoto("DSCF1182"),
   "/images/DSC00800.JPG",
-  "/images/new-work/studio-relaxed.jpg",
-  folderPhoto("DSCF1045"),
-  "/images/DSC01711.JPG",
-  "/images/IMG_5102.JPG",
+  "/images/new-work/orange-wig-portrait.webp",
+  "/images/DSC00617.JPG",
+  "/images/new-work/motion-fashion-portrait.webp",
+  "/images/new-work/golden-costume-portrait.webp",
 ];
 export const galleryImages = [...new Set(gallerySelection)].filter(keep);
 export const onSiteImages = [...new Set([heroImage, aboutImage, closingImage, ...featuredImages, ...galleryImages])];

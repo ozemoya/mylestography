@@ -1,4 +1,7 @@
 export const newPhotos = [
+  { src: "/images/new-work/orange-wig-portrait.webp", alt: "Portrait of a person in an orange wig with both hands raised" },
+  { src: "/images/new-work/golden-costume-portrait.webp", alt: "Portrait of a person in a white costume with golden curls" },
+  { src: "/images/new-work/motion-fashion-portrait.webp", alt: "Fashion portrait with dark hair in motion against a blue backdrop" },
   { src: "/images/new-work/studio-smile.jpg", alt: "Smiling studio portrait with a pink flower" },
   { src: "/images/new-work/garden-portrait.jpg", alt: "Outdoor portrait in a pink floral shirt in warm sunlight" },
   { src: "/images/new-work/concert-violet.jpg", alt: "Singer performing under violet and red stage lights" },
@@ -10,6 +13,7 @@ export const newPhotos = [
 ];
 
 export function photoAlt(src: string, fallback: string) {
+  if (src === "/images/DSC00617.JPG") return "Outdoor celebration photographed from below in warm light";
   if (src === "/images/featured/sunhat-portrait.webp") return "Golden portrait in a white outfit and wide sunhat against a green sky";
   if (src === "/images/featured/sunflower-parasol.webp") return "Smiling portrait with a lace parasol in a sunflower field";
   if (src.includes("/folder-collection/")) {
