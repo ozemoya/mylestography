@@ -18,4 +18,6 @@ export function priceRange(item: { minPrice: number; maxPrice: number }) {
   return `${money(item.minPrice)}–${money(item.maxPrice)}`;
 }
 
-export const bookingDeposit = money(62.5);
+export function depositRange(item: { minPrice: number; maxPrice: number }) {
+  return `${money(item.minPrice / 4)}–${money(item.maxPrice / 4)}`;
+}

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import DesktopChrome from "../components/DesktopChrome";
-import { packages, priceRange, bookingDeposit, packageLabel } from "./packages";
+import { packages, priceRange, depositRange, packageLabel } from "./packages";
 
 export default function BookingContent() {
   const [selectedId, setSelectedId] = useState<string>(packages[0].id);
@@ -22,7 +22,7 @@ export default function BookingContent() {
     try {
       const response = await fetch("/api/book", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, message: `Package: ${packageLabel(selected)} (${priceRange(selected)}; mandatory deposit ${bookingDeposit})\n\n${form.message}` }),
+        body: JSON.stringify({ ...form, message: `Package: ${packageLabel(selected)} (${priceRange(selected)}; mandatory deposit ${depositRange(selected)})\n\n${form.message}` }),
       });
       if (!response.ok) throw new Error("Inquiry failed");
       setSubmitted(true);
@@ -39,7 +39,7 @@ export default function BookingContent() {
       </header>
       <section aria-labelledby="packages-heading">
         <h2 id="packages-heading" className="booking-section-title">Packages.</h2>
-        <p className="booking-policy">Choose a package. I set the final price and send a booking link. Pay a {bookingDeposit} deposit to book. The balance is due on shoot day.</p>
+        <p className="booking-policy">Choose a package. I set the final price and send a booking link. Pay a 25% deposit to book; the balance is due on shoot day. Deposit ranges are estimates.</p>
         <p className="booking-policy"><strong>Travel:</strong> 0–10 miles included · 11–20 miles: $15 · 21–30 miles: $25 · 31–40 miles: $40 · 40+ miles: quoted individually.</p>
         {["Photos", "Video", "Mixed media"].map(service => <section className="package-service" key={service} aria-label={`${service} packages`}>
           <h3>{service}</h3>
@@ -47,7 +47,7 @@ export default function BookingContent() {
             <div className="package-card-heading"><h4>{item.tier}</h4><p>{priceRange(item)}</p></div>
             <p>{item.description}</p>
             <ul>{item.details.map(detail => <li key={detail}>{detail}</li>)}</ul>
-            <p className="package-deposit">Deposit: <strong>{bookingDeposit}</strong></p>
+            <p className="package-deposit">25% deposit: <strong>{depositRange(item)}</strong></p>
             <button type="button" aria-pressed={selectedId === item.id} onClick={() => { setSelectedId(item.id); requestAnimationFrame(() => document.getElementById("inquiry")?.scrollIntoView({ behavior: "instant" })); }}>
               {selectedId === item.id ? "SELECTED" : "SELECT PACKAGE"}
             </button>
@@ -55,7 +55,7 @@ export default function BookingContent() {
         </section>)}
       </section>
       <section id="inquiry" className="contact-grid inquiry-section" aria-labelledby="inquiry-heading">
-        <div><p className="eyebrow">REQUEST A QUOTE</p><h2 id="inquiry-heading" className="booking-section-title">Shoot details.</h2><p className="page-deck">Send your date, location, and what you need. I’ll reply with the final price and booking link.</p><p className="booking-selection" aria-live="polite">Selected: <strong>{packageLabel(selected)}</strong> · {priceRange(selected)} · Deposit: <strong>{bookingDeposit}</strong></p><a className="text-link" href="mailto:myleskmiller@gmail.com">EMAIL ME ↗</a></div>
+        <div><p className="eyebrow">REQUEST A QUOTE</p><h2 id="inquiry-heading" className="booking-section-title">Shoot details.</h2><p className="page-deck">Send your date, location, and what you need. I’ll reply with the final price and booking link.</p><p className="booking-selection" aria-live="polite">Selected: <strong>{packageLabel(selected)}</strong> · {priceRange(selected)} · Estimated deposit: <strong>{depositRange(selected)}</strong></p><a className="text-link" href="mailto:myleskmiller@gmail.com">EMAIL ME ↗</a></div>
         {submitted ? <div className="thank-you" role="status">Sent. I’ll email your quote and booking link.</div> : <form className="contact-form" onSubmit={submit}>
           <div className="field"><label htmlFor="package">Package</label><select id="package" value={selectedId} onChange={event => setSelectedId(event.target.value)}>{packages.map(item => <option key={item.id} value={item.id}>{packageLabel(item)} — {priceRange(item)}</option>)}</select></div>
           <div className="field"><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" value={form.name} onChange={change} required /></div>
